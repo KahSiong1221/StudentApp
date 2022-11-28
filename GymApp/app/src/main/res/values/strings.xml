@@ -1,0 +1,24 @@
+<resources>
+    <string name="no_mem">No membership present</string>
+    <string name="app_name">GymApp</string>
+    <string name="Button_bookings">View Bookings</string>
+    <string name="Button_book">Book - Gym or Fitness slot</string>
+    <string name="Button_buy">Buy gym subscription</string>
+    <string name="header">TU DUBLIN SPORT</string>
+    <string-array name="weekDays">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>Gym Session</item>
+        <item>Fitness Class</item>
+    </string-array>
+    <string name="title_activity_view_booking">ViewBooking</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
