@@ -1,0 +1,80 @@
+/* CLASS HAS TO BE IMPLEMENT GestureDetector.OnGestureListener */
+
+public class Menu extends AppCompatActivity implements GestureDetector.OnGestureListener {
+
+    // Initialising swiping variables
+    // private static final String TAG = "Swipe Positon";
+    private float x1, x2, y1, y2;
+    private static int MIN_DISTANCE = 150;
+    private GestureDetector gestureDetector;
+
+
+
+	/* INSIDE ON CREATE FUNCTION */
+
+	// Initalise gesturedetector
+   	this.gestureDetector = new GestureDetector(Menu.this, this);
+
+
+	/* FUNCTION OF THE CLASS, FOR SWIPING */
+	
+   	// REFERENCE START
+	// https://www.youtube.com/watch?v=oFl7WwEX2Co
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+    gestureDetector.onTouchEvent(event);
+    switch(event.getAction()){
+        //starting to swipe time gesture
+        case MotionEvent.ACTION_DOWN:
+            x1 = event.getX();
+            y1 = event.getY();
+            break;
+
+        //ending time swipe gesture
+        case MotionEvent.ACTION_UP:
+            x2 = event.getX();
+            y2 = event.getY();
+
+            //getting values for horizontal swipe and vertical swipe
+            float valueX = x2 - x1;
+            float valueY = y2 - y1;
+
+            if (Math.abs(valueX) > MIN_DISTANCE)
+            {
+                //detect left to right
+                if (x2>x1)
+                {
+                    //do nothing has toast to check
+                    //Toast.makeText(this,"Right is swiped", Toast.LENGTH_SHORT).show();
+                    // OPENS NEW THE SIDE BAR
+                    startActivity(new Intent(Menu.this, SidebarMenu.class));
+                }
+                else
+                {
+                    //detect right to left swipe
+                    //do nothing has toast to check
+                    //Toast.makeText(this,"Left is swiped", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else if (Math.abs(valueY) > MIN_DISTANCE)
+            {
+                //detect top to bottom swipe
+                if (y2 > y1)
+                {
+                    //do nothing has toast to check
+                    //Toast.makeText(this,"Bottom is swiped", Toast.LENGTH_SHORT).show();
+                    //Log.d(TAG, "Bottom swipe");
+                }
+                else
+                {
+                    //detect bottom to top swipe
+                    //do nothing has toast to check
+                    //Toast.makeText(this,"Top is swiped", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+    	}
+
+
+    	return super.onTouchEvent(event);
+	}
