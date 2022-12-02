@@ -18,10 +18,23 @@ public class SaDbHelper extends SQLiteOpenHelper {
     // SocietiesPortal tables
     protected static final String DB_SOCIETY_TABLE = "society";
     protected static final String DB_SOC_ENROLMENT_TABLE = "socEnrolment";
+    // Gym tables
+    protected static final String DB_GYM_SLOT_TABLE = "gymSlot";
+    protected static final String DB_GYM_MEMBERSHIP_TABLE = "gymMembership";
+    protected static final String DB_GYM_MEMBER_TABLE = "gymMember";
+    /* TODO: Calendar tables
+    protected static final String DB_EVENT_TABLE = "event";
+    protected static final String DB_EVENT_ENTRY_TABLE = "eventEntry";
+    */
 
     // common columns
     protected static final String KEY_NAME = "name";
     protected static final String KEY_PHONE_NO = "phone_no";
+    protected static final String KEY_DATE = "date";
+    protected static final String KEY_START_TIME = "start_time";
+    protected static final String KEY_END_TIME = "end_time";
+    protected static final String KEY_PRICE = "price";
+    protected static final String KEY_TYPE = "type";
     // user columns
     protected static final String KEY_USER_ID = "user_id";
     protected static final String KEY_EMAIL = "email";
@@ -32,13 +45,25 @@ public class SaDbHelper extends SQLiteOpenHelper {
     protected static final String KEY_CLOSE_TIME = "close_time";
     // foodItem columns
     protected static final String KEY_FOOD_ID = "food_id";
-    protected static final String KEY_PRICE = "price";
-    protected static final String KEY_VEGAN = "vegan";
-    protected static final String KEY_CATEGORY = "category";
+    protected static final String KEY_VEGAN = "vegan";  // boolean: is the food vegan friendly
+    protected static final String KEY_CATEGORY = "category";    // enum {Breakfast, Lunch, Snack, Beverage}
     // society columns
     protected static final String KEY_SOC_ID = "soc_id";
     // soc enrolment columns
     protected static final String KEY_ENROL_USER_CONTACT = "user_contact";
+    // gym slot columns
+    protected static final String KEY_GYM_SLOT_ID = "gym_slot_id";
+    // gym membership columns
+    protected static final String KEY_GYM_MEMBERSHIP_ID = "gym_mem_id";
+    // gym member columns
+    protected static final String KEY_END_DATE = "end_date";
+
+    /* TODO: event columns
+    protected static final String KEY_EVENT_ID = "event_id";
+    protected static final String KEY_LOCATION = "location";
+    protected static final String KEY_SOURCE = "source";    // enum {Gym, Library, SocietyEvent, ...}
+    TODO: event entry columns
+    */
 
 
     // create tables queries
@@ -82,6 +107,23 @@ public class SaDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY (" + KEY_USER_ID + ") REFERENCES " + DB_USER_TABLE + " (" + KEY_USER_ID + "), " +
             "FOREIGN KEY (" + KEY_SOC_ID + ") REFERENCES " + DB_SOCIETY_TABLE + " (" + KEY_SOC_ID + "), " +
             "PRIMARY KEY (" + KEY_USER_ID + ", " + KEY_SOC_ID + "));";
+    private static final String DB_CREATE_GYM_SLOT_TABLE = "CREATE TABLE " + DB_GYM_SLOT_TABLE + " (" +
+            KEY_GYM_SLOT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            KEY_DATE + " TEXT NOT NULL, " +
+            KEY_START_TIME + " TEXT NOT NULL, " +
+            KEY_END_TIME + " TEXT NOT NULL, " +
+            KEY_TYPE + " TEXT NOT NULL);";
+    private static final String DB_CREATE_GYM_MEMBERSHIP_TABLE = "CREATE TABLE " + DB_GYM_MEMBERSHIP_TABLE + " (" +
+            KEY_GYM_MEMBERSHIP_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            KEY_TYPE + " TEXT NOT NULL, " +
+            KEY_PRICE + " FLOAT NOT NULL);";
+    private static final String DB_CREATE_GYM_MEMBER_TABLE = "CREATE TABLE " + DB_GYM_MEMBER_TABLE + " (" +
+            KEY_USER_ID + " INTEGER NOT NULL, " +
+            KEY_GYM_MEMBERSHIP_ID + " INTEGER NOT NULL, " +
+            KEY_END_DATE + " TEXT NOT NULL, " +
+            "FOREIGN KEY (" + KEY_USER_ID + ") REFERENCES " + DB_USER_TABLE + " (" + KEY_USER_ID + "), " +
+            "FOREIGN KEY (" + KEY_GYM_MEMBERSHIP_ID + ") REFERENCES " + DB_GYM_MEMBERSHIP_TABLE + " (" + KEY_GYM_MEMBERSHIP_ID + "), " +
+            "PRIMARY KEY (" + KEY_USER_ID + ", " + KEY_GYM_MEMBERSHIP_ID + "));";
 
     // constructor
     public SaDbHelper(Context context) {
@@ -99,6 +141,10 @@ public class SaDbHelper extends SQLiteOpenHelper {
 
         db.execSQL(DB_CREATE_SOCIETY_TABLE);
         db.execSQL(DB_CREATE_SOC_ENROLMENT_TABLE);
+
+        db.execSQL(DB_CREATE_GYM_SLOT_TABLE);
+        db.execSQL(DB_CREATE_GYM_MEMBERSHIP_TABLE);
+        db.execSQL(DB_CREATE_GYM_MEMBER_TABLE);
     }
 
     @Override
