@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 // reference: https://www.youtube.com/watch?v=26PVJh9PmgU
 public class MenuExpListAdapter extends BaseExpandableListAdapter {
@@ -30,7 +31,11 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        return menus.get(foodCategories.get(i)).size();
+        if (menus.get(foodCategories.get(i)) != null) {
+            return menus.get(foodCategories.get(i)).size();
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -40,7 +45,7 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int i, int i1) {
-        return menus.get(foodCategories.get(i)).get(i1);
+        return Objects.requireNonNull(menus.get(foodCategories.get(i))).get(i1);
     }
 
     @Override
@@ -50,7 +55,7 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int i, int i1) {
-        return menus.get(foodCategories.get(i)).get(i1).getFoodId();
+        return 0;
     }
 
     @Override
@@ -88,7 +93,7 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
 
         CheckBox favCheckbox = view.findViewById(R.id.favCheckbox);
 
-        favCheckbox.setChecked(MainActivity.favFoodIds.contains(thisFood.getFoodId()));
+        favCheckbox.setChecked(EocActivity.favFoodIds.contains(thisFood.getFoodId()));
 
         favCheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,12 +102,12 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
                 eocDb.open();
 
                 if (((CheckBox) view).isChecked()) {
-                    MainActivity.favFoodIds.add(thisFood.getFoodId());
-                    eocDb.insertFavouriteItem(MainActivity.user.getUserId(), thisFood.getFoodId());
+                    EocActivity.favFoodIds.add(thisFood.getFoodId());
+                    eocDb.insertFavouriteItem(EocActivity.user.getUserId(), thisFood.getFoodId());
                     Toast.makeText(viewGroup.getContext(), thisFood.getFoodName() + " is added to favourites", Toast.LENGTH_SHORT).show();
                 } else {
-                    MainActivity.favFoodIds.remove(Integer.valueOf(thisFood.getFoodId()));
-                    eocDb.removeFavouriteItem(MainActivity.user.getUserId(), thisFood.getFoodId());
+                    EocActivity.favFoodIds.remove(Integer.valueOf(thisFood.getFoodId()));
+                    eocDb.removeFavouriteItem(EocActivity.user.getUserId(), thisFood.getFoodId());
                     Toast.makeText(viewGroup.getContext(), thisFood.getFoodName() + " is removed from favourites", Toast.LENGTH_SHORT).show();
                 }
 

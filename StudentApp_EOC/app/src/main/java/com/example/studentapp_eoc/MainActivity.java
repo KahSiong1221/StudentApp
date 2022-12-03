@@ -1,71 +1,128 @@
 package com.example.studentapp_eoc;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ExpandableListView;
-import android.widget.ImageButton;
-import android.widget.Spinner;
+import android.widget.Button;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-// reference: https://medium.com/@CodyEngel/4-ways-to-implement-onclicklistener-on-android-9b956cbd2928
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    EocDbManager eocDb;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
+
+public class MainActivity extends AppCompatActivity {
+
     static User user;
-    Spinner restSpinner;
-    ExpandableListView menuExpListView;
-    ImageButton favButton;
-    static ArrayList<Integer> favFoodIds;
-    MenuExpListAdapter menuExpListAdapter;
+    SaDbManager saDb;
 
-    View.OnClickListener favButtonOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            favButtonClicked();
-        }
-    };
+    DrawerLayout drawerLayout;
+    NavigationView navView;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    TextView greetingText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        eocDb = new EocDbManager(this);
+        // check if the dummy db is initialise, insert dummy data when first time running app
+        initDummyDB();
 
-        restSpinner = findViewById(R.id.restSpinner);
-        menuExpListView = findViewById(R.id.menuExpListView);
-        favButton = findViewById(R.id.favButton);
+        // greeting text
+        greetingText = findViewById(R.id.greetingText);
+        greetingText.setText(String.format("Hello, %s!", user.getUserName()));
 
-        restSpinner.setOnItemSelectedListener(this);
-        favButton.setOnClickListener(favButtonOnClickListener);
+        // TODO: implement common side menu
+        // side drawer menu
+        // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
+        drawerLayout = findViewById(R.id.drawer);
+        navView = findViewById(R.id.navView);
 
-        favFoodIds = new ArrayList<>();
-        user = new User(1, "Robot Siong");
-        // insertDummyData();
-        loadRestaurants();
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,  R.string.menu_open, R.string.menu_close);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        // return one level up rather than to the top level of app when selecting home (close menu)
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId())
+                {
+                    case R.id.soc:
+                        Intent intent = new Intent(getApplicationContext(), SocsPortal.class);
+                        startActivity(intent);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                return true;
+            }
+        });
+        // reference end
+
+
+        Button socsbutton = (Button)findViewById(R.id.socsbutt);
+        socsbutton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getApplicationContext(), SocsPortal.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (menuExpListAdapter != null) {
-            menuExpListAdapter.notifyDataSetChanged();
+    private void initDummyDB() {
+        saDb = new SaDbManager(this);
+        saDb.open();
+        // find the only dummy user in database
+        Cursor myCursor = saDb.findUserByUserName("Robot Siong");
+
+        // if user found, the database was initialised
+        if (myCursor.moveToFirst()) {
+            // initialise the only dummy user
+            user = new User(
+                    myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_USER_ID)),
+                    myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_NAME)),
+                    myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_EMAIL)),
+                    myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_PHONE_NO))
+            );
+        } else {
+            // insert dummy data
+            insertDummyUser();
+            insertDummyDataForEOC();
         }
+
+        myCursor.close();
+        saDb.close();
     }
 
-    private void insertDummyData() {
+
+    private void insertDummyUser() {
+        saDb.open();
+
+        // insert dummy user and retrieve auto generated id
+        user = new User("Robot Siong", "1010101@freeuni.ie", "0837778888");
+        user.setUserId(saDb.insertUser(user));
+
+        saDb.close();
+    }
+
+    private void insertDummyDataForEOC() {
+        // instantiate eating on campus database manager
+        EocDbManager eocDb = new EocDbManager(this);
         eocDb.open();
 
-        // user
-        user = new User("Robot Siong");
-        // restaurants
+        // dummy restaurants
         Restaurant r1 = new Restaurant(
                 "Rathdown House Restaurant",
                 "Rathdown House, TU Dublin, Grangegorman, Dublin",
@@ -87,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 "08:00",
                 "16:00"
         );
-        // food items
+        // dummy food items
         FoodItem fi_b1 = new FoodItem(
                 "Croissant",
                 (float) 1.00,
@@ -119,8 +176,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 "Beverage"
         );
 
-        // insert user
-        user.setUserId(eocDb.insertUser(user));
         // insert restaurants
         r1.setRestId(eocDb.insertRestaurant(r1));
         r2.setRestId(eocDb.insertRestaurant(r2));
@@ -142,104 +197,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         eocDb.insertFavouriteItem(user.getUserId(), fi_d1.getFoodId());
 
         eocDb.close();
-    }
-
-    private void loadRestaurants() {
-        ArrayList<Restaurant> restaurants = new ArrayList<>();
-        // set a default value for spinner
-        Restaurant defaultRest = new Restaurant();
-        defaultRest.setRestName("Select Restaurant...");
-        restaurants.add(0, defaultRest);
-
-        eocDb.open();
-
-        Cursor myCursor = eocDb.getAllRestaurants();
-
-        if (myCursor.moveToFirst()) {
-            do {
-                restaurants.add(new Restaurant(
-                        myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_REST_ID)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_REST_NAME)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_ADDRESS)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_PHONE_NO)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_OPEN_TIME)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_CLOSE_TIME))
-                ));
-            } while (myCursor.moveToNext());
-        }
-
-        RestSpinnerAdapter restSpinnerAdapter = new RestSpinnerAdapter(this, android.R.layout.simple_spinner_item, restaurants);
-
-        restSpinner.setAdapter(restSpinnerAdapter);
-        restSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        myCursor.close();
-        eocDb.close();
-    }
-
-    private void loadMenus(int restId) {
-        ArrayList<String> foodCategories = new ArrayList<>(Arrays.asList("Breakfast", "Lunch", "Snack", "Beverage"));
-        HashMap<String, ArrayList<FoodItem>> menus = new HashMap<>();
-
-        eocDb.open();
-
-        Cursor myCursor = eocDb.getFoodByRestId(restId);
-
-        if (myCursor.moveToFirst()) {
-            do {
-                FoodItem food = new FoodItem(
-                        myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_ID)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_NAME)),
-                        myCursor.getFloat(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_PRICE)),
-                        myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_VEGAN)) == 1,
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_CATEGORY))
-                );
-
-                menus.computeIfAbsent(food.getCategory(), k -> new ArrayList<>()).add(food);
-
-            } while (myCursor.moveToNext());
-        }
-
-        loadFavFoodItems();
-
-        menuExpListAdapter = new MenuExpListAdapter(foodCategories, menus);
-        menuExpListView.setAdapter(menuExpListAdapter);
-
-        myCursor.close();
-        eocDb.close();
-    }
-
-    private void loadFavFoodItems() {
-        eocDb.open();
-
-        Cursor favCursor = eocDb.getFavItemByUserId(user.getUserId());
-
-        if (favCursor.moveToFirst()) {
-            do {
-                int thisFoodId = favCursor.getInt(favCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_ID));
-                if (!favFoodIds.contains(thisFoodId)) {
-                    favFoodIds.add(thisFoodId);
-                }
-            } while (favCursor.moveToNext());
-        }
-
-        favCursor.close();
-        eocDb.close();
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-        Restaurant selectedRest = (Restaurant) adapterView.getItemAtPosition(position);
-        if (position > 0) {
-            loadMenus(selectedRest.getRestId());
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {}
-
-    private void favButtonClicked() {
-        Intent intent = new Intent(MainActivity.this, FavFoodActivity.class);
-        startActivity(intent);
     }
 }

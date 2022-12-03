@@ -46,8 +46,8 @@ public class FavFoodListAdapter extends ArrayAdapter<FoodItem> {
                 eocDb.open();
 
                 favFoodItems.remove(thisFood);
-                MainActivity.favFoodIds.remove(Integer.valueOf(thisFood.getFoodId()));
-                eocDb.removeFavouriteItem(MainActivity.user.getUserId(), thisFood.getFoodId());
+                EocActivity.favFoodIds.remove(Integer.valueOf(thisFood.getFoodId()));
+                eocDb.removeFavouriteItem(EocActivity.user.getUserId(), thisFood.getFoodId());
                 Toast.makeText(parent.getContext(), thisFood.getFoodName() + " is removed from favourites", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
 

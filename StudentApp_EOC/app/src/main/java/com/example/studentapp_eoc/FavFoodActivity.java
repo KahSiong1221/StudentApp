@@ -39,13 +39,13 @@ public class FavFoodActivity extends Activity {
         EocDbManager eocDb = new EocDbManager(this);
         eocDb.open();
 
-        Cursor myCursor = eocDb.getFoodByUserId(MainActivity.user.getUserId());
+        Cursor myCursor = eocDb.getFoodByUserId(EocActivity.user.getUserId());
 
         if (myCursor.moveToFirst()) {
             do {
                 favFoodItems.add(new FoodItem(
                         myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_ID)),
-                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_NAME)),
+                        myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_NAME)),
                         myCursor.getFloat(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_PRICE)),
                         myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_VEGAN)) == 1,
                         myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_CATEGORY))
