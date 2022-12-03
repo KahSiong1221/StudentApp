@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+//DB Helper to construct ALL tables for everyone's activities
 public class SaDbHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "studentAppDb";
@@ -58,14 +59,6 @@ public class SaDbHelper extends SQLiteOpenHelper {
     // gym member columns
     protected static final String KEY_END_DATE = "end_date";
 
-    /* TODO: event columns
-    protected static final String KEY_EVENT_ID = "event_id";
-    protected static final String KEY_LOCATION = "location";
-    protected static final String KEY_SOURCE = "source";    // enum {Gym, Library, SocietyEvent, ...}
-    TODO: event entry columns
-    */
-
-
     // create tables queries
     private static final String DB_CREATE_USER_TABLE = "CREATE TABLE " + DB_USER_TABLE + " (" +
             KEY_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -97,9 +90,13 @@ public class SaDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY (" + KEY_USER_ID + ") REFERENCES " + DB_USER_TABLE + " (" + KEY_USER_ID + "), " +
             "FOREIGN KEY (" + KEY_FOOD_ID + ") REFERENCES " + DB_FOODITEM_TABLE + " (" + KEY_FOOD_ID + "), " +
             "PRIMARY KEY (" + KEY_USER_ID + ", " + KEY_FOOD_ID + "));";
+
+    //creating society table
     private static final String DB_CREATE_SOCIETY_TABLE = "CREATE TABLE " + DB_SOCIETY_TABLE + " (" +
             KEY_SOC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_NAME + " TEXT NOT NULL);";
+
+    //creating enrollment table - uses foreign keys from user and society table
     private static final String DB_CREATE_SOC_ENROLMENT_TABLE = "CREATE TABLE " + DB_SOC_ENROLMENT_TABLE + " (" +
             KEY_USER_ID + " INTEGER NOT NULL, " +
             KEY_SOC_ID + " INTEGER NOT NULL, " +
@@ -107,6 +104,7 @@ public class SaDbHelper extends SQLiteOpenHelper {
             "FOREIGN KEY (" + KEY_USER_ID + ") REFERENCES " + DB_USER_TABLE + " (" + KEY_USER_ID + "), " +
             "FOREIGN KEY (" + KEY_SOC_ID + ") REFERENCES " + DB_SOCIETY_TABLE + " (" + KEY_SOC_ID + "), " +
             "PRIMARY KEY (" + KEY_USER_ID + ", " + KEY_SOC_ID + "));";
+
     private static final String DB_CREATE_GYM_SLOT_TABLE = "CREATE TABLE " + DB_GYM_SLOT_TABLE + " (" +
             KEY_GYM_SLOT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_DATE + " TEXT NOT NULL, " +

@@ -11,8 +11,10 @@ import android.widget.SimpleCursorAdapter;
 
 public class SearchResults extends ListActivity
 {
+    //columns to be displayed and queried for simplecursoradapter
     int[] columns = {R.id.socname};
     String[] queryColumns = {"name"};
+
     private Button joinButton;
 
 
@@ -21,25 +23,32 @@ public class SearchResults extends ListActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchres);
+
+        //pass the searched variable
         Intent intent = getIntent();
         String sn = intent.getStringExtra("socname");
 
+        //open database
         DBManager myDB = new DBManager(this);
         myDB.open();
 
+        //get all societies that match search and return as a cursor
         Cursor socs = myDB.getAllSocs(sn);
 
+        //set simplecursoradapter on new cursor
         SimpleCursorAdapter myAdapter = new SimpleCursorAdapter(this, R.layout.row, socs, queryColumns, columns);
         setListAdapter(myAdapter);
     }
 
+    //setting listener on list items
     public void onListItemClick(ListView l, View v, int position, long id)
     {
         super.onListItemClick(l, v, position, id);
+        //getting the appropriate data for the clicked society from the cursor
         Cursor soc = (Cursor)l.getItemAtPosition(position);
+        //go to the ClickedActivity page, passing the society name of the selected society
         Intent intent = new Intent(SearchResults.this, ClickedActivity.class);
         intent.putExtra("socname", soc.getString(1));
-
 
         startActivity(intent);
     }

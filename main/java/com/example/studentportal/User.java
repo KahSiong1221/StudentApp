@@ -1,14 +1,18 @@
 package com.example.studentportal;
 
 public class User {
+
+    //User fields
     int _id;
     String _name;
 
+    //constructor
     public User(int id, String name){
         this._id = id;
         this._name = name;
     }
 
+    //getters and setters
     public User(String name){
         this._name = _name;
     }

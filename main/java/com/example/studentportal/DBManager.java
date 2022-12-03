@@ -28,7 +28,6 @@ public class DBManager {
     public DBManager(Context context)
     {
         this.context = context;
-
     }
 
     public DBManager open() throws SQLException {
@@ -59,7 +58,9 @@ public class DBManager {
     }
 
 
-    //get all socs
+    //used for searching for socs - takes a string and finds all
+    //societies that match this string (partial search)
+    //and uses a subquery to assure the results displayed are not in the enrollment table
     public Cursor getAllSocs(String s) {
         String selectQuery = "SELECT "+KEY_SOC_ID+" AS _id, "+KEY_NAME+" FROM "+DB_SOCIETY_TABLE+" WHERE "
                 +KEY_NAME+" LIKE '%"+s+"%' AND "+KEY_SOC_ID+" NOT IN (SELECT "+KEY_SOC_ID+" FROM " +DB_SOC_ENROLMENT_TABLE+");";
@@ -69,6 +70,8 @@ public class DBManager {
         return soclist;
     }
 
+
+    //get a society's id using the a string (soc name)
     public Cursor getSocId(String s){
         String selectQuery = "SELECT "+KEY_SOC_ID+" AS _id FROM "+DB_SOCIETY_TABLE+" WHERE "+KEY_NAME+
                 " LIKE '%"+s+"%'";
@@ -83,7 +86,8 @@ public class DBManager {
 
     // -------------- ENROLLMENT CRUD OPERATIONS ---------------
 
-
+    //get the info on the joined societies i.e the societies in the enrollment table
+    //join needed here as the soc name isnt stored in the enrollment table and we need this value for displaying
     public Cursor getJoinedSocs(int id) {
         String selectQuery = "SELECT "+DB_SOCIETY_TABLE+"."+KEY_SOC_ID+" AS _id, "+KEY_NAME+", "+KEY_ENROL_USER_CONTACT+" FROM "+DB_SOCIETY_TABLE+" JOIN "
         +DB_SOC_ENROLMENT_TABLE+" WHERE "+DB_SOCIETY_TABLE+"."+KEY_SOC_ID+" ="+DB_SOC_ENROLMENT_TABLE+"."+KEY_SOC_ID+";";
@@ -93,7 +97,7 @@ public class DBManager {
         return soclist;
     }
 
-    // add the new user
+    // add a new enrollment
     void addEnr(enrollment enr ) {
 
         ContentValues values = new ContentValues();
@@ -111,6 +115,7 @@ public class DBManager {
         database.close();
     }
 
+    //updating the contact number column of a single enrollment, by matching the society id
     public void updateEnr(int sid, String num)
     {
         ContentValues cv = new ContentValues();
