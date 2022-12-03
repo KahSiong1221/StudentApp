@@ -5,6 +5,8 @@
     <string name="Button_book">Book - Gym or Fitness slot</string>
     <string name="Button_buy">Buy gym subscription</string>
     <string name="header">TU DUBLIN SPORT</string>
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
     <string-array name="weekDays">
         <item>Monday</item>
         <item>Tuesday</item>

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.GymApp"
         tools:targetApi="31">
         <activity
+            android:name=".GymInfo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SidebarMenu"
             android:theme="@style/Theme.AppCompat.Dialog.Alert">
             <meta-data

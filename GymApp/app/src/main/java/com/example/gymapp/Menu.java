@@ -2,22 +2,35 @@ package com.example.gymapp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.nfc.Tag;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.gymapp.BookGymTimeslot;
 import com.example.gymapp.GymDatabaseManager;
 import com.example.gymapp.GymSubscription;
 import com.example.gymapp.R;
 import com.example.gymapp.UserActivity;
+import android.content.Context;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 
-public class Menu extends AppCompatActivity {
+public class Menu extends AppCompatActivity implements GestureDetector.OnGestureListener {
+
+    // Initialising swiping variables
+    // private static final String TAG = "Swipe Positon";
+    private float x1, x2, y1, y2;
+    private static int MIN_DISTANCE = 150;
+    private GestureDetector gestureDetector;
+
 
     ImageButton menuButton;
     ImageButton userButton;
@@ -36,6 +49,8 @@ public class Menu extends AppCompatActivity {
         menuButton = (ImageButton) findViewById(R.id.menuButton);
         userButton = (ImageButton) findViewById(R.id.userButton);
 
+        // Initalise gesturedetector
+        this.gestureDetector = new GestureDetector(Menu.this, this);
         GymDatabaseManager dbManager = new GymDatabaseManager(this);
         dbManager.open();
 
@@ -59,8 +74,6 @@ public class Menu extends AppCompatActivity {
                 startActivity(new Intent(Menu.this, SidebarMenu.class));
             }
         });
-
-
 
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,4 +112,98 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
+
+    // REFERENCE START
+    // https://www.youtube.com/watch?v=oFl7WwEX2Co
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetector.onTouchEvent(event);
+        switch(event.getAction()){
+            //starting to swipe time gesture
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+
+            //ending time swipe gesture
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+
+                //getting values for horizontal swipe and vertical swipe
+                float valueX = x2 - x1;
+                float valueY = y2 - y1;
+
+                if (Math.abs(valueX) > MIN_DISTANCE)
+                {
+                    //detect left to right
+                    if (x2>x1)
+                    {
+                        //do nothing has toast to check
+                        //Toast.makeText(this,"Right is swiped", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Menu.this, SidebarMenu.class));
+                    }
+                    else
+                    {
+                        //detect right to left swipe
+                        //do nothing has toast to check
+                        //Toast.makeText(this,"Left is swiped", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if (Math.abs(valueY) > MIN_DISTANCE)
+                {
+                    //detect top to bottom swipe
+                    if (y2 > y1)
+                    {
+                        //do nothing has toast to check
+                        //Toast.makeText(this,"Bottom is swiped", Toast.LENGTH_SHORT).show();
+                        //Log.d(TAG, "Bottom swipe");
+                    }
+                    else
+                    {
+                        //detect bottom to top swipe
+                        //do nothing has toast to check
+                        //Toast.makeText(this,"Top is swiped", Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+        }
+
+
+        return super.onTouchEvent(event);
+    }
+
+    // REFERENCE FINISH
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
 }

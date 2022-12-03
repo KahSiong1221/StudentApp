@@ -52,6 +52,7 @@ public class BookConfirm extends AppCompatActivity {
             }
         });
         // REFERENCING FOR DIALOG ALERT
+        // https://www.youtube.com/watch?v=EiTLd0FQCTk
         // HAD TO ADD TO ANDROID MANIFEST
         // android:theme="@style/Theme.AppCompat.Dialog.Alert">
         // 1 of 3

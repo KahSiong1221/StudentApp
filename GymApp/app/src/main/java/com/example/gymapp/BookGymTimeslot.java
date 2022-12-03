@@ -90,6 +90,9 @@ public class BookGymTimeslot extends ListActivity implements AdapterView.OnItemS
     }
 
     //REFERENCE THIS SPINNER DROP DOWN CODE
+    // https://stackoverflow.com/users/1692590/jakob
+    // User JAKOB in stackover answers this question on how to work a drop down menu
+    // https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
     @Override
     public void onItemSelected(AdapterView<?> parent , View v, int position, long id) {
 
@@ -251,7 +254,7 @@ public class BookGymTimeslot extends ListActivity implements AdapterView.OnItemS
         }
 
     }
-    //REFERENCE COMPLETE FOUND OUT HOW TO USE SPINNER
+    //REFERENCE FINISHED FOR DROP DOWN MENU
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
