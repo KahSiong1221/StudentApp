@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavFoodActivity"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/backToFoodMenuButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="@string/back_to_food_menu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:text="@string/favourite_food_items"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/favFoodList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/purple_700"
+        android:dividerHeight="1dp" />
+
+</LinearLayout>
