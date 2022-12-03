@@ -21,19 +21,19 @@
 
             <ImageButton
                 android:id="@+id/userButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:background="@null"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:src="@drawable/ic_user" />
 
             <TextView
                 android:id="@+id/greetingText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="7"
                 android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:textSize="24sp" >
             </TextView>
 
@@ -66,14 +66,6 @@
             android:background="@android:color/holo_blue_light" />
 
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_to_the_tu_dublin_student_app"
-            android:textSize="22sp"
-            android:layout_gravity="center" />
-
-        <TextView
             android:layout_marginTop="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +80,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="Library"
                 android:layout_width="110dp"
                 android:layout_height="100dp" />
@@ -97,13 +89,13 @@
             <Button
                 android:id="@+id/socsbutt"
                 android:layout_marginTop="-9dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="Soc Portal"
                 android:layout_width="110dp"
                 android:layout_height="100dp" />
 
             <Button
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="Gym"
                 android:layout_width="110dp"
                 android:layout_height="100dp" />
@@ -118,7 +110,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginLeft="60dp"
+                android:layout_marginStart="60dp"
                 android:text="Timetable"
                 android:layout_gravity="center"
                 android:layout_width="120dp"
@@ -127,7 +119,7 @@
 
             <Button
                 android:id="@+id/eocButton"
-                android:layout_marginLeft="50dp"
+                android:layout_marginStart="50dp"
                 android:text="Eating On Campus"
                 android:layout_gravity="center"
                 android:layout_width="120dp"

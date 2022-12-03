@@ -65,13 +65,20 @@ public class FavFoodActivity extends AppCompatActivity {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
 
                 switch(item.getItemId())
                 {
-                    case R.id.food:
-                        Intent intent = new Intent(getApplicationContext(), EocActivity.class);
+                    case R.id.home:
+                        intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.food:
+                        finish();
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
                 return true;
             }

@@ -73,13 +73,18 @@ public class MainActivity extends AppCompatActivity {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
 
                 switch(item.getItemId())
                 {
+                    case R.id.home:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
                     case R.id.food:
-                        Intent intent = new Intent(getApplicationContext(), EocActivity.class);
+                        intent = new Intent(getApplicationContext(), EocActivity.class);
                         startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
                 return true;
             }
@@ -157,6 +162,18 @@ public class MainActivity extends AppCompatActivity {
                 true,
                 "Breakfast"
         );
+        FoodItem fi_b2 = new FoodItem(
+                "Pain Au Chocolat",
+                (float) 1.20,
+                true,
+                "Breakfast"
+        );
+        FoodItem fi_b3 = new FoodItem(
+                "Scone",
+                (float) 1.00,
+                true,
+                "Breakfast"
+        );
         FoodItem fi_l1 = new FoodItem(
                 "Fish & Chips",
                 (float) 5.99,
@@ -169,15 +186,51 @@ public class MainActivity extends AppCompatActivity {
                 false,
                 "Lunch"
         );
+        FoodItem fi_l3 = new FoodItem(
+                "Chicken Fillet Roll",
+                (float) 3.99,
+                false,
+                "Lunch"
+        );
+        FoodItem fi_l4 = new FoodItem(
+                "Mixed Veg Roll",
+                (float) 3.99,
+                true,
+                "Lunch"
+        );
         FoodItem fi_s1 = new FoodItem(
                 "Cadbury Crunchie 40g",
                 (float) 0.99,
                 true,
                 "Snack"
         );
+        FoodItem fi_s2 = new FoodItem(
+                "Snikers Bar 40g",
+                (float) 0.99,
+                true,
+                "Snack"
+        );
+        FoodItem fi_s3 = new FoodItem(
+                "Cadbury Timeout Wafer 40g",
+                (float) 0.79,
+                true,
+                "Snack"
+        );
         FoodItem fi_d1 = new FoodItem(
                 "Monster Ultra Zero 500ml",
                 (float) 1.7,
+                true,
+                "Beverage"
+        );
+        FoodItem fi_d2 = new FoodItem(
+                "Latte 16oz",
+                (float) 2.5,
+                true,
+                "Beverage"
+        );
+        FoodItem fi_d3 = new FoodItem(
+                "Americano 16oz",
+                (float) 2.5,
                 true,
                 "Beverage"
         );
@@ -188,16 +241,58 @@ public class MainActivity extends AppCompatActivity {
         r3.setRestId(eocDb.insertRestaurant(r3));
         // insert food items
         fi_b1.setFoodId(eocDb.insertFoodItem(fi_b1));
+        fi_b2.setFoodId(eocDb.insertFoodItem(fi_b2));
+        fi_b3.setFoodId(eocDb.insertFoodItem(fi_b3));
         fi_l1.setFoodId(eocDb.insertFoodItem(fi_l1));
         fi_l2.setFoodId(eocDb.insertFoodItem(fi_l2));
+        fi_l3.setFoodId(eocDb.insertFoodItem(fi_l3));
+        fi_l4.setFoodId(eocDb.insertFoodItem(fi_l4));
         fi_s1.setFoodId(eocDb.insertFoodItem(fi_s1));
+        fi_s2.setFoodId(eocDb.insertFoodItem(fi_s2));
+        fi_s3.setFoodId(eocDb.insertFoodItem(fi_s3));
         fi_d1.setFoodId(eocDb.insertFoodItem(fi_d1));
+        fi_d2.setFoodId(eocDb.insertFoodItem(fi_d2));
+        fi_d3.setFoodId(eocDb.insertFoodItem(fi_d3));
         // insert menus
         eocDb.insertMenu(r1.getRestId(), fi_b1.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_b2.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_b3.getFoodId());
         eocDb.insertMenu(r1.getRestId(), fi_l1.getFoodId());
         eocDb.insertMenu(r1.getRestId(), fi_l2.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_l3.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_l4.getFoodId());
         eocDb.insertMenu(r1.getRestId(), fi_s1.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_s2.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_s3.getFoodId());
         eocDb.insertMenu(r1.getRestId(), fi_d1.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_d2.getFoodId());
+        eocDb.insertMenu(r1.getRestId(), fi_d3.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_b1.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_b2.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_b3.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_l1.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_l2.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_l3.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_l4.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_s1.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_s2.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_s3.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_d1.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_d2.getFoodId());
+        eocDb.insertMenu(r2.getRestId(), fi_d3.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_b1.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_b2.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_b3.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_l1.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_l2.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_l3.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_l4.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_s1.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_s2.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_s3.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_d1.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_d2.getFoodId());
+        eocDb.insertMenu(r3.getRestId(), fi_d3.getFoodId());
         // insert fav items
         eocDb.insertFavouriteItem(user.getUserId(), fi_b1.getFoodId());
         eocDb.insertFavouriteItem(user.getUserId(), fi_d1.getFoodId());

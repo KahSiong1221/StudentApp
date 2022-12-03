@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:minHeight="32dp"
-                android:contentDescription="@string/restaurant_drop_down_list"/>
+                android:contentDescription="@string/restaurant_drop_down_list" />
 
             <ImageButton
                 android:id="@+id/favButton"
@@ -35,12 +35,30 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/restAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/restPhoneNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/restOperatingHour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" />
+
         <ExpandableListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/menuExpListView" />
 
-        </LinearLayout>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

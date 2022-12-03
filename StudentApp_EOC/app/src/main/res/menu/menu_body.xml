@@ -4,19 +4,28 @@
 
     <group android:checkableBehavior="single">
 
+        <item android:id="@+id/home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home"/>
+
         <item android:id="@+id/soc"
+            android:icon="@drawable/ic_menu_soc"
             android:title="Societies Portal"/>
 
         <item android:id="@+id/food"
+            android:icon="@drawable/ic_menu_food"
             android:title="Food on Campus"/>
 
         <item android:id="@+id/gym"
+            android:icon="@drawable/ic_menu_gym"
             android:title="TU Dublin Sport"/>
 
         <item android:id="@+id/library"
+            android:icon="@drawable/ic_menu_library"
             android:title="Library Services"/>
 
         <item android:id="@+id/timetable"
+            android:icon="@drawable/ic_menu_timetable"
             android:title="Timetables"/>
     </group>
 </menu>

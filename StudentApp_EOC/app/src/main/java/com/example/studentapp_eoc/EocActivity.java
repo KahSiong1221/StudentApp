@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -86,13 +87,17 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
 
                 switch(item.getItemId())
                 {
-                    case R.id.food:
-                        Intent intent = new Intent(getApplicationContext(), EocActivity.class);
-                        startActivity(intent);
+                    case R.id.home:
+                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.food:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
                 }
                 return true;
             }
@@ -187,6 +192,15 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
         Restaurant selectedRest = (Restaurant) adapterView.getItemAtPosition(position);
         if (position > 0) {
+            TextView restAddress = findViewById(R.id.restAddress);
+            restAddress.setText(String.format("   %s", selectedRest.getAddress()));
+
+            TextView restPhoneNo = findViewById(R.id.restPhoneNo);
+            restPhoneNo.setText(String.format("   (+353) %s", selectedRest.getPhoneNo()));
+
+            TextView restOperatingHour = findViewById(R.id.restOperatingHour);
+            restOperatingHour.setText(String.format("   Operating Hour: %s - %s", selectedRest.getOpenTime(), selectedRest.getCloseTime()));
+
             loadMenus(selectedRest.getRestId());
         }
     }
