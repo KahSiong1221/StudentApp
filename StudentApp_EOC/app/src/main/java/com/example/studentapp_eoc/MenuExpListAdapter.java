@@ -70,7 +70,7 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
         groupTitle.setText(String.valueOf(getGroup(i)));
         // text style
         groupTitle.setTypeface(null, Typeface.BOLD);
-        groupTitle.setTextColor(Color.BLUE);
+        groupTitle.setTextColor(Color.BLACK);
 
         return view;
     }
