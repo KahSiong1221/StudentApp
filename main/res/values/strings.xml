@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StudentPortal</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="mapsapi">AIzaSyBxKgaPzy2RPVgT0uHeuD_oXi7sTFGf9Cg</string>
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
+</resources>
