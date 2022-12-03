@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">StudentApp_EOC</string>
+    <string name="restaurant_drop_down_list">restaurant_drop_down_list</string>
+    <string name="manage_fav_items">manage_fav_items</string>
+    <string name="fav_checkbox">fav_checkbox</string>
+    <string name="delete_fav_items">delete_fav_items</string>
+    <string name="back_to_food_menu">back_to_food_menu</string>
+    <string name="favourite_food_items">Favourite Food Items</string>
+    <string name="tu_dublin_student_app">TU Dublin Student App</string>
+    <string name="welcome_to_the_tu_dublin_student_app">Welcome to The TU Dublin Student App!</string>
+    <string name="select_an_option_from_the_menu_below">Select an option from the menu below</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_close">Close</string>
+</resources>
