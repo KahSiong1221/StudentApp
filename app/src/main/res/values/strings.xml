@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">StudentApp</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
+
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
+
+    <string name="no_mem">No membership present</string>
+    <string name="Button_bookings">View Bookings</string>
+    <string name="Button_book">Book - Gym or Fitness slot</string>
+    <string name="Button_buy">Buy gym subscription</string>
+    <string name="header">TU DUBLIN SPORT</string>
+    <string name="calheader">Calendar</string>
+
+    <string-array name="weekDays">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>Gym Session</item>
+        <item>Fitness Class</item>
+    </string-array>
+    <string name="title_activity_view_booking">ViewBooking</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="restaurant_drop_down_list">restaurant_drop_down_list</string>
+    <string name="manage_fav_items">manage_fav_items</string>
+    <string name="fav_checkbox">fav_checkbox</string>
+    <string name="delete_fav_items">delete_fav_items</string>
+    <string name="back_to_food_menu">back_to_food_menu</string>
+    <string name="favourite_food_items">Favourite Food Items</string>
+    <string name="tu_dublin_student_app">TU Dublin Student App</string>
+    <string name="welcome_to_the_tu_dublin_student_app">Welcome to The TU Dublin Student App!</string>
+    <string name="select_an_option_from_the_menu_below">Select an option from the menu below</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_close">Close</string>
+    <string name="menu_title_home">Home</string>
+    <string name="menu_title_societies_portal">Societies Portal</string>
+    <string name="menu_title_eating_on_campus">Eating on Campus</string>
+    <string name="menu_title_tu_dublin_sport">TU Dublin Sport</string>
+    <string name="menu_title_library_services">Library Services</string>
+    <string name="menu_title_timetables">Timetables</string>
+
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="mapsapi">AIzaSyBxKgaPzy2RPVgT0uHeuD_oXi7sTFGf9Cg</string>
+</resources>
