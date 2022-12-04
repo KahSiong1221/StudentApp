@@ -39,10 +39,10 @@ public class SocPortalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soc_portal);
 
-        input = (EditText) findViewById(R.id.input);
-        search = (Button) findViewById(R.id.searchbut);
+        input = findViewById(R.id.input);
+        search = findViewById(R.id.searchbut);
         //setting textview to user's name
-        name = (TextView) findViewById(R.id.name);
+        name = findViewById(R.id.name);
         name.setText(String.format("Hello, %s!", MainActivity.user.getUserName()));
 
         // initialise side drawer menu
@@ -80,11 +80,9 @@ public class SocPortalActivity extends AppCompatActivity {
         {
             public void onClick(View v)
             {
-                /* TODO
                 //switch to the map activity page when this button is clicked
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SocMapActivity.class);
                 startActivity(intent);
-                */
             }
         });
     }

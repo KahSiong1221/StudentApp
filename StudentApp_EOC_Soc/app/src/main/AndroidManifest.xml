@@ -16,9 +16,14 @@
         android:theme="@style/Theme.StudentApp_EOC_Soc"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD2lxOLT96wljv55ILpb--fZom3SkVaehs" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Student App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +37,8 @@
 
         <activity
             android:name=".eating_on_campus.EocActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Eating on Campus">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -41,7 +47,8 @@
 
         <activity
             android:name=".eating_on_campus.FavFoodActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Favourite Food Items">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -50,7 +57,8 @@
 
         <activity
             android:name=".soc_portal.SocPortalActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Societies Portal">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -59,7 +67,8 @@
 
         <activity
             android:name=".soc_portal.SocSearchActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Society Search Results">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -68,7 +77,8 @@
 
         <activity
             android:name=".soc_portal.SocJoinedActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Joined Societies">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -77,7 +87,8 @@
 
         <activity
             android:name=".soc_portal.LeaveSocActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Leave Society">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -87,7 +98,18 @@
 
         <activity
             android:name=".soc_portal.JoinSocActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Join Society">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".soc_portal.SocMapActivity"
+            android:exported="false"
+            android:label="Student Union">
 
             <meta-data
                 android:name="android.app.lib_name"
