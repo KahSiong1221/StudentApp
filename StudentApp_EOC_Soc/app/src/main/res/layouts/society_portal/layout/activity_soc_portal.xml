@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer"
-    tools:context=".LeaveSocActivity" >
+    tools:context=".soc_portal.SocPortalActivity"
+    android:id="@+id/drawer">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,107 +38,125 @@
             </TextView>
 
         </LinearLayout>
-
         <View
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@android:color/holo_blue_light"/>
-
+            android:background="@android:color/holo_blue_light"
+            />
         <TextView
-            android:gravity="center"
-            android:id="@+id/socname"
+            android:layout_gravity="center"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Socname"
+            android:text="TU Dublin Societies Portal"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
-            android:textSize="30sp" />
-
-
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="20sp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <TextView
-                android:layout_marginTop="10sp"
-                android:layout_marginStart="20sp"
-                android:id="@+id/leavetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Click here to leave society :("
-                android:textSize="15sp"/>
-
-            <Button
-
-                android:layout_gravity="center"
-                android:id="@+id/leavebutton"
-                android:layout_marginStart="50dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Leave" />
-
-
-        </LinearLayout>
+            android:textSize="30sp">
+        </TextView>
 
         <View
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@android:color/holo_blue_light"/>
-
+            android:background="@android:color/holo_blue_light"
+            />
         <TextView
-            android:layout_marginStart="15sp"
-            android:layout_marginTop="40sp"
-            android:id="@+id/updatetext"
-            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Or update your contact number here" />
+            android:text="Search for a society:"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"/>
 
         <LinearLayout
-            android:layout_marginStart="10dp"
-            android:layout_gravity="center"
             android:orientation="horizontal"
             android:layout_marginTop="5sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/updateedit"
+                android:layout_gravity="center"
+                android:id="@+id/input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:textSize="16sp"
                 android:ems="10"
-                android:text="enter number" />
+                android:hint="Enter society name..." />
 
             <Button
-                android:layout_marginStart="25sp"
-                android:id="@+id/updatebutton"
+                android:layout_gravity="center"
+                android:id="@+id/searchbut"
+                android:layout_marginStart="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="update" />
-
+                android:text="Search" />
         </LinearLayout>
-
         <View
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Or click below to manage your memberships"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="30dp"
+            android:textSize="18sp">
+        </TextView>
+
+        <Button
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Societies" />
+        <View
+            android:layout_marginTop="25dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@android:color/holo_blue_light"/>
 
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Visit The Students Union!"
+            android:layout_marginStart="75dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:textSize="18sp">
+        </TextView>
 
+        <Button
+            android:id="@+id/loc"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit" />
+        <View
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/holo_blue_light"/>
 
     </LinearLayout>
 

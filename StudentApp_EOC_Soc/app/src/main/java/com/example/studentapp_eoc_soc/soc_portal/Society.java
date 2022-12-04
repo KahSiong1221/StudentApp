@@ -1,4 +1,4 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.soc_portal;
 
 public class Society {
     private int socId;

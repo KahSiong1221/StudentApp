@@ -1,8 +1,11 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.soc_portal;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
+import com.example.studentapp_eoc_soc.SaDbHelper;
+import com.example.studentapp_eoc_soc.SaDbManager;
 
 public class SocDbManager extends SaDbManager {
     public SocDbManager(Context context) {

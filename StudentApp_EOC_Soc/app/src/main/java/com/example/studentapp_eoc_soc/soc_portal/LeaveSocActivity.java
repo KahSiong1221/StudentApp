@@ -1,4 +1,4 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.soc_portal;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,11 +15,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.studentapp_eoc_soc.MainActivity;
+import com.example.studentapp_eoc_soc.R;
+import com.example.studentapp_eoc_soc.eating_on_campus.EocActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
-public class JoinSocActivity extends AppCompatActivity {
+public class LeaveSocActivity extends AppCompatActivity {
 
     // variables for the side menu drawer menu
     DrawerLayout drawerLayout;
@@ -32,7 +36,7 @@ public class JoinSocActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join_soc);
+        setContentView(R.layout.activity_leave_soc);
         //setting textview to user's name
         name = (TextView) findViewById(R.id.name);
         name.setText(String.format("Hello, %s!", MainActivity.user.getUserName()));
@@ -40,33 +44,48 @@ public class JoinSocActivity extends AppCompatActivity {
         // initialise side drawer menu
         loadSideMenu();
 
-        //getting society name from previous intent
+        //getting society name and society id from previous intent
         Intent intent = getIntent();
         String sn = intent.getStringExtra("socname");
 
+
         //set textview as the society name selected
-        TextView name = (TextView) findViewById(R.id.socname);
+        TextView name = findViewById(R.id.socname);
         name.setText(sn);
 
-        //open dbmanager
+        //open new dbmanager
         SocDbManager myDB = new SocDbManager(this);
         myDB.open();
 
-        //getting the id of current soc using socname
+        //get society id of selected society using getSocId
         Cursor socids = myDB.getSocId(sn);
         socids.moveToFirst();
         int socid = socids.getInt(0);
 
-        //on click listener for join society button
-        Button joinbutton = (Button)findViewById(R.id.joinbutton);
-        joinbutton.setOnClickListener(new View.OnClickListener()
+        //set listener on leave soc button
+        Button leave = findViewById(R.id.leavebutton);
+        leave.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
-                //add an enrollment for the current user and this society, using the
-                // user id, society id and contact number
-                SocEnrolment enr = new SocEnrolment(MainActivity.user.getUserId(),socid,MainActivity.user.getPhoneNo());
-                myDB.insertSocEnrolment(enr);
+                //run delete enrollment query using the society id
+                myDB.deleteSocEnrolment(socid);
+                //back to menu
+                finish();
+            }
+        });
+
+        //defining visual elements
+        EditText edit =  findViewById(R.id.updateedit);
+        Button update = findViewById(R.id.updatebutton);
+        //set listener on update button
+        update.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                //run the update query using society id and the new number
+                String str = edit.getText().toString();
+                myDB.updateSocEnrolment(socid, str);
                 //back to menu
                 finish();
             }
@@ -93,20 +112,20 @@ public class JoinSocActivity extends AppCompatActivity {
 
                 switch(item.getItemId())
                 {
-                    // join society page -> home page
+                    // leave society page -> home page
                     case R.id.home:
                         intent = new Intent(getApplicationContext(), MainActivity.class);
-                        // close join society page & society portal
+                        // close society clicked page & society portal
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    // join society page -> society portal
+                    // leave society page -> society portal
                     case R.id.soc:
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    // join society page -> eating on campus
+                    // leave society page -> eating on campus
                     case R.id.food:
                         intent = new Intent(getApplicationContext(), EocActivity.class);
                         startActivity(intent);

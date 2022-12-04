@@ -9,36 +9,36 @@ public class SaDbHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "studentAppDb";
 
     // common tables
-    protected static final String DB_USER_TABLE = "user";
+    public static final String DB_USER_TABLE = "user";
     // EatingOnCampus tables
-    protected static final String DB_RESTAURANT_TABLE = "restaurant";
-    protected static final String DB_FOODITEM_TABLE = "foodItem";
-    protected static final String DB_MENU_TABLE = "menu";
-    protected static final String DB_FAVITEM_TABLE = "favItem";
+    public static final String DB_RESTAURANT_TABLE = "restaurant";
+    public static final String DB_FOODITEM_TABLE = "foodItem";
+    public static final String DB_MENU_TABLE = "menu";
+    public static final String DB_FAVITEM_TABLE = "favItem";
     // SocietiesPortal tables
-    protected static final String DB_SOCIETY_TABLE = "society";
-    protected static final String DB_SOC_ENROLMENT_TABLE = "socEnrolment";
+    public static final String DB_SOCIETY_TABLE = "society";
+    public static final String DB_SOC_ENROLMENT_TABLE = "socEnrolment";
 
     // common columns
-    protected static final String KEY_NAME = "name";
-    protected static final String KEY_PHONE_NO = "phone_no";
-    protected static final String KEY_PRICE = "price";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_PHONE_NO = "phone_no";
+    public static final String KEY_PRICE = "price";
     // user columns
-    protected static final String KEY_USER_ID = "user_id";
-    protected static final String KEY_EMAIL = "email";
+    public static final String KEY_USER_ID = "user_id";
+    public static final String KEY_EMAIL = "email";
     // restaurant columns
-    protected static final String KEY_REST_ID = "rest_id";
-    protected static final String KEY_ADDRESS = "address";
-    protected static final String KEY_OPEN_TIME = "open_time";
-    protected static final String KEY_CLOSE_TIME = "close_time";
+    public static final String KEY_REST_ID = "rest_id";
+    public static final String KEY_ADDRESS = "address";
+    public static final String KEY_OPEN_TIME = "open_time";
+    public static final String KEY_CLOSE_TIME = "close_time";
     // foodItem columns
-    protected static final String KEY_FOOD_ID = "food_id";
-    protected static final String KEY_VEGAN = "vegan";  // boolean: is the food vegan friendly
-    protected static final String KEY_CATEGORY = "category";    // enum {Breakfast, Lunch, Snack, Beverage}
+    public static final String KEY_FOOD_ID = "food_id";
+    public static final String KEY_VEGAN = "vegan";  // boolean: is the food vegan friendly
+    public static final String KEY_CATEGORY = "category";    // enum {Breakfast, Lunch, Snack, Beverage}
     // society columns
-    protected static final String KEY_SOC_ID = "soc_id";
+    public static final String KEY_SOC_ID = "soc_id";
     // soc enrolment columns
-    protected static final String KEY_ENROL_USER_CONTACT = "user_contact";
+    public static final String KEY_ENROL_USER_CONTACT = "user_contact";
 
     // create tables queries
     private static final String DB_CREATE_USER_TABLE = "CREATE TABLE " + DB_USER_TABLE + " (" +

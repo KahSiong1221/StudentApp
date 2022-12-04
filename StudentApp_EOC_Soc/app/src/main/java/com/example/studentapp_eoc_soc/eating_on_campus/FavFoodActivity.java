@@ -1,4 +1,4 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.eating_on_campus;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.studentapp_eoc_soc.MainActivity;
+import com.example.studentapp_eoc_soc.R;
+import com.example.studentapp_eoc_soc.SaDbHelper;
+import com.example.studentapp_eoc_soc.soc_portal.SocPortalActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;

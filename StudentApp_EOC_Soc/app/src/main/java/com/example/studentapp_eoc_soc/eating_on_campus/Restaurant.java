@@ -1,4 +1,4 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.eating_on_campus;
 
 public class Restaurant {
     private int restId;

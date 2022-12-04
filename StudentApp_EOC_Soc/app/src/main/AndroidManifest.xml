@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".EocActivity"
+            android:name=".eating_on_campus.EocActivity"
             android:exported="true">
 
             <meta-data
@@ -40,7 +40,7 @@
         </activity>
 
         <activity
-            android:name=".FavFoodActivity"
+            android:name=".eating_on_campus.FavFoodActivity"
             android:exported="true">
 
             <meta-data
@@ -49,7 +49,7 @@
         </activity>
 
         <activity
-            android:name=".SocPortalActivity"
+            android:name=".soc_portal.SocPortalActivity"
             android:exported="true">
 
             <meta-data
@@ -58,7 +58,7 @@
         </activity>
 
         <activity
-            android:name=".SocSearchActivity"
+            android:name=".soc_portal.SocSearchActivity"
             android:exported="true">
 
             <meta-data
@@ -67,7 +67,7 @@
         </activity>
 
         <activity
-            android:name=".SocJoinedActivity"
+            android:name=".soc_portal.SocJoinedActivity"
             android:exported="true">
 
             <meta-data
@@ -76,7 +76,7 @@
         </activity>
 
         <activity
-            android:name=".LeaveSocActivity"
+            android:name=".soc_portal.LeaveSocActivity"
             android:exported="true">
 
             <meta-data
@@ -86,7 +86,7 @@
 
 
         <activity
-            android:name=".JoinSocActivity"
+            android:name=".soc_portal.JoinSocActivity"
             android:exported="true">
 
             <meta-data

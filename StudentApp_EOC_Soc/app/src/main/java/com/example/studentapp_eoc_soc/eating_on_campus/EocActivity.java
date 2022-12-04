@@ -1,4 +1,4 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.eating_on_campus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,6 +17,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.studentapp_eoc_soc.MainActivity;
+import com.example.studentapp_eoc_soc.R;
+import com.example.studentapp_eoc_soc.SaDbHelper;
+import com.example.studentapp_eoc_soc.soc_portal.SocPortalActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -31,7 +35,7 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
     Spinner restSpinner;
     ExpandableListView menuExpListView;
     ImageButton favButton;
-    static ArrayList<Integer> favFoodIds;
+    public static ArrayList<Integer> favFoodIds;
     FoodMenuExpListAdapter foodMenuExpListAdapter;
 
     DrawerLayout drawerLayout;

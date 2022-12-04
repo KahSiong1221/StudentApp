@@ -1,8 +1,11 @@
-package com.example.studentapp_eoc_soc;
+package com.example.studentapp_eoc_soc.eating_on_campus;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+
+import com.example.studentapp_eoc_soc.SaDbHelper;
+import com.example.studentapp_eoc_soc.SaDbManager;
 
 public class EocDbManager extends SaDbManager {
     public EocDbManager(Context context) {

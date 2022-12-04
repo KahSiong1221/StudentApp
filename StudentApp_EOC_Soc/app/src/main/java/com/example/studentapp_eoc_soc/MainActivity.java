@@ -14,13 +14,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.studentapp_eoc_soc.eating_on_campus.EocActivity;
+import com.example.studentapp_eoc_soc.eating_on_campus.EocDbManager;
+import com.example.studentapp_eoc_soc.eating_on_campus.FoodItem;
+import com.example.studentapp_eoc_soc.eating_on_campus.Restaurant;
+import com.example.studentapp_eoc_soc.soc_portal.SocDbManager;
+import com.example.studentapp_eoc_soc.soc_portal.SocPortalActivity;
+import com.example.studentapp_eoc_soc.soc_portal.Society;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    static User user;
+    public static User user;
     SaDbManager saDb;
     DrawerLayout drawerLayout;
     NavigationView navView;
