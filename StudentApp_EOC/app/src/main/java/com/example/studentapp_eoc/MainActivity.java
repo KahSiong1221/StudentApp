@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
     static User user;
     SaDbManager saDb;
-
     DrawerLayout drawerLayout;
     NavigationView navView;
     ActionBarDrawerToggle actionBarDrawerToggle;
     TextView greetingText;
     Button eocButton;
 
+    // home page -> eating on campus button: click
     View.OnClickListener eocButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v)
@@ -46,26 +46,25 @@ public class MainActivity extends AppCompatActivity {
 
         // check if the dummy db is initialise, insert dummy data when first time running app
         initDummyDB();
-        // initialise the side menu
-        loadSideMenu();
 
-        // greeting text
+        // initialise greeting text
         greetingText = findViewById(R.id.greetingText);
         greetingText.setText(String.format("Hello, %s!", user.getUserName()));
 
+        // home page -> eating on campus button
         eocButton = findViewById(R.id.eocButton);
         eocButton.setOnClickListener(eocButtonOnClickListener);
 
+        // initialise side drawer menu
+        loadSideMenu();
     }
 
+    // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
     private void loadSideMenu() {
-        // side drawer menu
-        // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
         drawerLayout = findViewById(R.id.drawer);
         navView = findViewById(R.id.navView);
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,  R.string.menu_open, R.string.menu_close);
-
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         // return one level up rather than to the top level of app when selecting home (close menu)
@@ -77,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(item.getItemId())
                 {
+                    // home page
                     case R.id.home:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+                    // home page -> eating on campus
                     case R.id.food:
                         intent = new Intent(getApplicationContext(), EocActivity.class);
                         startActivity(intent);
@@ -89,10 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // reference end
     }
 
     private void initDummyDB() {
+        // initialise student app db manager
         saDb = new SaDbManager(this);
         saDb.open();
         // find the only dummy user in database
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void insertDummyDataForEOC() {
-        // instantiate eating on campus database manager
+        // instantiate eating on campus db manager
         EocDbManager eocDb = new EocDbManager(this);
         eocDb.open();
 

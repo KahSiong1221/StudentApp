@@ -20,13 +20,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class FavFoodActivity extends AppCompatActivity {
+
     ImageButton backButton;
     ListView favFoodListView;
-
     DrawerLayout drawerLayout;
     NavigationView navView;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+    // favourite food list -> eating on campus button: click
     View.OnClickListener backButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -39,20 +40,19 @@ public class FavFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fav_food);
 
-        favFoodListView = findViewById(R.id.favFoodList);
-
+        // favourite food list -> eating on campus button
         backButton = findViewById(R.id.backToFoodMenuButton);
         backButton.setOnClickListener(backButtonOnClickListener);
 
-        // initialise the side menu
+        // initialise side drawer menu
         loadSideMenu();
 
+        // initialise favourite food list
         loadFavFoodItems();
     }
 
+    // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
     private void loadSideMenu() {
-        // side drawer menu
-        // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
         drawerLayout = findViewById(R.id.drawer);
         navView = findViewById(R.id.navView);
 
@@ -69,12 +69,15 @@ public class FavFoodActivity extends AppCompatActivity {
 
                 switch(item.getItemId())
                 {
+                    // favourite food list -> home page
                     case R.id.home:
                         intent = new Intent(getApplicationContext(), MainActivity.class);
+                        // close favourite food list & eating on campus
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+                    // favourite food list -> eating on campus
                     case R.id.food:
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -83,12 +86,12 @@ public class FavFoodActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // reference end
     }
 
     private void loadFavFoodItems() {
         ArrayList<FoodItem> favFoodItems = new ArrayList<>();
 
+        // instantiate eating on campus db manager
         EocDbManager eocDb = new EocDbManager(this);
         eocDb.open();
 
@@ -96,6 +99,7 @@ public class FavFoodActivity extends AppCompatActivity {
 
         if (myCursor.moveToFirst()) {
             do {
+                // add favourite food to list
                 favFoodItems.add(new FoodItem(
                         myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_ID)),
                         myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_NAME)),
@@ -106,6 +110,8 @@ public class FavFoodActivity extends AppCompatActivity {
             } while (myCursor.moveToNext());
         }
 
+        // instantiate favourite food list
+        favFoodListView = findViewById(R.id.favFoodList);
         FavFoodListAdapter favFoodListAdapter = new FavFoodListAdapter(this, favFoodItems);
         favFoodListView.setAdapter(favFoodListAdapter);
 

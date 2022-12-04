@@ -27,12 +27,16 @@ public class RestSpinnerAdapter extends ArrayAdapter<Restaurant> {
         return position != 0;
     }
 
+    // instantiate selected restaurant
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        // initialise selected restaurant name
         TextView tv = (TextView) super.getView(position, convertView, parent);
         tv.setText(restaurants.get(position).getRestName());
+        // text style
         tv.setTypeface(null, Typeface.BOLD);
 
+        // make the selection hint to grey colour
         if (position == 0) {
             tv.setTextColor(Color.GRAY);
         } else {
@@ -42,12 +46,16 @@ public class RestSpinnerAdapter extends ArrayAdapter<Restaurant> {
         return tv;
     }
 
+    // instantiate restaurants in drop down list
     @Override
     public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
+        // initialise restaurant names
         TextView tv = (TextView) super.getDropDownView(position, convertView, parent);
         tv.setText(restaurants.get(position).getRestName());
+        // text style
         tv.setTypeface(null, Typeface.BOLD);
 
+        // make the selection hint to grey colour
         if (position == 0) {
             tv.setTextColor(Color.GRAY);
         } else {

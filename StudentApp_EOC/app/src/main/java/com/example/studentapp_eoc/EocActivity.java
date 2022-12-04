@@ -26,21 +26,23 @@ import java.util.Objects;
 
 // reference: https://medium.com/@CodyEngel/4-ways-to-implement-onclicklistener-on-android-9b956cbd2928
 public class EocActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
     EocDbManager eocDb;
     Spinner restSpinner;
     ExpandableListView menuExpListView;
     ImageButton favButton;
     static ArrayList<Integer> favFoodIds;
-    MenuExpListAdapter menuExpListAdapter;
-
+    FoodMenuExpListAdapter foodMenuExpListAdapter;
     DrawerLayout drawerLayout;
     NavigationView navView;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+    // eating on campus -> favourite food list button: click
     View.OnClickListener favButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            favButtonClicked();
+            Intent intent = new Intent(EocActivity.this, FavFoodActivity.class);
+            startActivity(intent);
         }
     };
 
@@ -49,32 +51,37 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eoc);
 
+        // initialise eating on campus db manager
         eocDb = new EocDbManager(this);
-
-        restSpinner = findViewById(R.id.restSpinner);
-        menuExpListView = findViewById(R.id.menuExpListView);
-        favButton = findViewById(R.id.favButton);
-
-        restSpinner.setOnItemSelectedListener(this);
-        favButton.setOnClickListener(favButtonOnClickListener);
-
+        // initialise favourite food id list
         favFoodIds = new ArrayList<>();
 
+        // restaurants drop down spinner
+        restSpinner = findViewById(R.id.restSpinner);
+        restSpinner.setOnItemSelectedListener(this);
+
+        // eating on campus -> favourite food list button
+        favButton = findViewById(R.id.favButton);
+        favButton.setOnClickListener(favButtonOnClickListener);
+
+        // initialise side drawer menu
         loadSideMenu();
+
+        // initialise restaurants drop down spinner
         loadRestaurants();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (menuExpListAdapter != null) {
-            menuExpListAdapter.notifyDataSetChanged();
+        // notify food menu list for data set changed
+        if (foodMenuExpListAdapter != null) {
+            foodMenuExpListAdapter.notifyDataSetChanged();
         }
     }
 
+    // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
     private void loadSideMenu() {
-        // side drawer menu
-        // reference: https://www.youtube.com/watch?v=fAXeq5F-CjI
         drawerLayout = findViewById(R.id.drawer);
         navView = findViewById(R.id.navView);
 
@@ -91,10 +98,12 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
 
                 switch(item.getItemId())
                 {
+                    // eating on campus -> home page
                     case R.id.home:
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
+                    // eating on campus
                     case R.id.food:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -102,7 +111,6 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
                 return true;
             }
         });
-        // reference end
     }
 
     private void loadRestaurants() {
@@ -118,6 +126,7 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
 
         if (myCursor.moveToFirst()) {
             do {
+                // add restaurant to the list
                 restaurants.add(new Restaurant(
                         myCursor.getInt(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_REST_ID)),
                         myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_NAME)),
@@ -129,8 +138,8 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
             } while (myCursor.moveToNext());
         }
 
+        // instantiate restaurants drop down list
         RestSpinnerAdapter restSpinnerAdapter = new RestSpinnerAdapter(this, android.R.layout.simple_spinner_item, restaurants);
-
         restSpinner.setAdapter(restSpinnerAdapter);
         restSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -140,7 +149,7 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
 
     private void loadMenus(int restId) {
         ArrayList<String> foodCategories = new ArrayList<>(Arrays.asList("Breakfast", "Lunch", "Snack", "Beverage"));
-        HashMap<String, ArrayList<FoodItem>> menus = new HashMap<>();
+        HashMap<String, ArrayList<FoodItem>> foodMenus = new HashMap<>();
 
         eocDb.open();
 
@@ -156,15 +165,19 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
                         myCursor.getString(myCursor.getColumnIndexOrThrow(SaDbHelper.KEY_CATEGORY))
                 );
 
-                menus.computeIfAbsent(food.getCategory(), k -> new ArrayList<>()).add(food);
+                // add food item to food menu, if no key(food category) present -> create one
+                foodMenus.computeIfAbsent(food.getCategory(), k -> new ArrayList<>()).add(food);
 
             } while (myCursor.moveToNext());
         }
 
+        // initialise favourite food id list
         loadFavFoodItems();
 
-        menuExpListAdapter = new MenuExpListAdapter(foodCategories, menus);
-        menuExpListView.setAdapter(menuExpListAdapter);
+        // instantiate food menu list
+        menuExpListView = findViewById(R.id.menuExpListView);
+        foodMenuExpListAdapter = new FoodMenuExpListAdapter(foodCategories, foodMenus);
+        menuExpListView.setAdapter(foodMenuExpListAdapter);
 
         myCursor.close();
         eocDb.close();
@@ -178,6 +191,7 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
         if (favCursor.moveToFirst()) {
             do {
                 int thisFoodId = favCursor.getInt(favCursor.getColumnIndexOrThrow(SaDbHelper.KEY_FOOD_ID));
+                // if its not existing in list, add favourite food id to list
                 if (!favFoodIds.contains(thisFoodId)) {
                     favFoodIds.add(thisFoodId);
                 }
@@ -188,28 +202,27 @@ public class EocActivity extends AppCompatActivity implements AdapterView.OnItem
         eocDb.close();
     }
 
+    // if a restaurant is selected, show its food menu
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
         Restaurant selectedRest = (Restaurant) adapterView.getItemAtPosition(position);
+        // ignore the default restaurant(hint)
         if (position > 0) {
+            // initialise restaurant address
             TextView restAddress = findViewById(R.id.restAddress);
             restAddress.setText(String.format("   %s", selectedRest.getAddress()));
-
+            // initialise restaurant phone number
             TextView restPhoneNo = findViewById(R.id.restPhoneNo);
             restPhoneNo.setText(String.format("   (+353) %s", selectedRest.getPhoneNo()));
-
+            // initialise restaurant operating hour
             TextView restOperatingHour = findViewById(R.id.restOperatingHour);
             restOperatingHour.setText(String.format("   Operating Hour: %s - %s", selectedRest.getOpenTime(), selectedRest.getCloseTime()));
 
+            // initialise food menu by the selected restaurant
             loadMenus(selectedRest.getRestId());
         }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
-
-    private void favButtonClicked() {
-        Intent intent = new Intent(EocActivity.this, FavFoodActivity.class);
-        startActivity(intent);
-    }
 }

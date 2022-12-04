@@ -15,20 +15,22 @@ import java.util.HashMap;
 import java.util.Objects;
 
 // reference: https://www.youtube.com/watch?v=26PVJh9PmgU
-public class MenuExpListAdapter extends BaseExpandableListAdapter {
+public class FoodMenuExpListAdapter extends BaseExpandableListAdapter {
     private final ArrayList<String> foodCategories;
     private final HashMap<String, ArrayList<FoodItem>> menus;
 
-    public MenuExpListAdapter(ArrayList<String> foodCategories, HashMap<String, ArrayList<FoodItem>> menus) {
+    public FoodMenuExpListAdapter(ArrayList<String> foodCategories, HashMap<String, ArrayList<FoodItem>> menus) {
         this.foodCategories = foodCategories;
         this.menus = menus;
     }
 
+    // number of food category
     @Override
     public int getGroupCount() {
         return foodCategories.size();
     }
 
+    // number of food item in a food category
     @Override
     public int getChildrenCount(int i) {
         if (menus.get(foodCategories.get(i)) != null) {
@@ -63,9 +65,11 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
+    // instantiate food category
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(viewGroup.getContext()).inflate(android.R.layout.simple_expandable_list_item_1, viewGroup, false);
+        // initialise food category
         TextView groupTitle = view.findViewById(android.R.id.text1);
         groupTitle.setText(String.valueOf(getGroup(i)));
         // text style
@@ -75,32 +79,36 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
         return view;
     }
 
+    // instantiate food item in a food category
     @Override
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.menu_row, viewGroup, false);
 
         FoodItem thisFood = (FoodItem) getChild(i, i1);
 
+        // initialise food name
         TextView foodName = view.findViewById(R.id.foodName);
         foodName.setText(thisFood.getFoodName());
-
+        // initialise food vegan tag
         TextView veganTag = view.findViewById(R.id.vegan);
         if (thisFood.isVegan())
             veganTag.setText("v");
-
+        // initialise food price
         TextView foodPrice = view.findViewById(R.id.foodPrice);
         foodPrice.setText(String.format("\u20ac %.2f", thisFood.getPrice()));
 
+        // initialise favourite food checkbox, checked if its in favourite food list
         CheckBox favCheckbox = view.findViewById(R.id.favCheckbox);
-
         favCheckbox.setChecked(EocActivity.favFoodIds.contains(thisFood.getFoodId()));
-
+        // favourite food checkbox: click
         favCheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EocDbManager eocDb = new EocDbManager(viewGroup.getContext());
                 eocDb.open();
 
+                // if its checked, insert favourite food to database
+                // else, remove favourite food from database
                 if (((CheckBox) view).isChecked()) {
                     EocActivity.favFoodIds.add(thisFood.getFoodId());
                     eocDb.insertFavouriteItem(MainActivity.user.getUserId(), thisFood.getFoodId());
@@ -118,6 +126,7 @@ public class MenuExpListAdapter extends BaseExpandableListAdapter {
         return view;
     }
 
+    // set food item can't be selected
     @Override
     public boolean isChildSelectable(int i, int i1) {
         return false;
