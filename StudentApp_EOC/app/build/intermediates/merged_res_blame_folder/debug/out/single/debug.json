@@ -1,0 +1,382 @@
+[
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_fav_uncheck.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_fav_uncheck.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_home.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_home.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_library.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_library.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_back_arrow.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_back_arrow.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_food.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_food.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_home.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_home.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_library.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_library.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_fav_uncheck.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_fav_uncheck.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_gym.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_gym.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_gym.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_gym.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_fav_items.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_fav_items.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_fav_items.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_fav_items.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_open.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_open.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_user.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_user.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_soc.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_soc.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_user.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_user.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/menu_menu_body.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/menu/menu_body.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_library.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_library.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_library.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_library.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_delete.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_delete.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_open.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_open.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_home.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_home.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_gym.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_gym.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_menu_row.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/menu_row.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_timetable.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_timetable.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_open.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_open.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_soc.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_soc.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_user.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_user.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_food.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_food.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/xml_backup_rules.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_fav_items.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_fav_items.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_timetable.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_timetable.png"
+    },
+    {
+        "merged": "com.example.studentapp_eoc.app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "com.example.studentapp_eoc.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_fav_check.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_fav_check.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_activity_eoc.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/activity_eoc.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_fav_check.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_fav_check.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_delete.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_delete.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_delete.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_delete.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_user.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_user.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_food.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_food.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_back_arrow.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_back_arrow.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_timetable.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_timetable.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_activity_fav_food.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/activity_fav_food.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_fav_uncheck.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_fav_uncheck.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_back_arrow.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_back_arrow.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_fav_uncheck.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_fav_uncheck.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu_open.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu_open.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_home.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_home.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_fav_items.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_fav_items.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_fav_food_row.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/fav_food_row.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_gym.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_gym.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_fav_uncheck.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_fav_uncheck.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_fav_items.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_fav_items.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_delete.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_delete.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_food.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_food.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_delete.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_delete.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_library.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_library.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_soc.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_soc.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_home.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_home.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_user.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_user.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_menu.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_menu.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_fav_check.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_fav_check.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/layout_side_menu.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/layout/side_menu.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xxhdpi_ic_back_arrow.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xxhdpi/ic_back_arrow.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_back_arrow.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_back_arrow.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_timetable.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_timetable.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_fav_check.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_fav_check.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-hdpi_ic_menu_gym.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-hdpi/ic_menu_gym.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_custom_fav_checkbox.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/custom_fav_checkbox.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_menu_soc.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_menu_soc.xml"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_soc.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_soc.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_open.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_open.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-mdpi_ic_menu_food.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-mdpi/ic_menu_food.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-xhdpi_ic_menu_timetable.png.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-xhdpi/ic_menu_timetable.png"
+    },
+    {
+        "merged": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-merged_res-29:/drawable-anydpi_ic_fav_check.xml.flat",
+        "source": "/Users/ksc/.gradle/daemon/7.4/com.example.studentapp_eoc.app-main-31:/drawable-anydpi/ic_fav_check.xml"
+    }
+]

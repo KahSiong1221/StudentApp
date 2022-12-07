@@ -18,6 +18,5 @@
     <string name="menu_title_library_services">Library Services</string>
     <string name="menu_title_timetables">Timetables</string>
 
-    <string name="title_activity_maps">MapsActivity</string>
     <string name="mapsapi">AIzaSyBxKgaPzy2RPVgT0uHeuD_oXi7sTFGf9Cg</string>
 </resources>
