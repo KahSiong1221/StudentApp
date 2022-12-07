@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- reference: https://www.youtube.com/watch?v=fAXeq5F-CjI -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/gym"
+            android:icon="@drawable/ic_menu_gym"
+            android:title="@string/menu_title_tu_dublin_sport" />
+
+        <item android:id="@+id/info"
+            android:icon="@drawable/ic_menu_gym_info"
+            android:title="Gym Information" />
+
+        <item android:id="@+id/home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_title_home" />
+
+        <item android:id="@+id/soc"
+            android:icon="@drawable/ic_menu_soc"
+            android:title="@string/menu_title_societies_portal" />
+
+        <item android:id="@+id/food"
+            android:icon="@drawable/ic_menu_food"
+            android:title="@string/menu_title_eating_on_campus" />
+
+
+        <item android:id="@+id/library"
+            android:icon="@drawable/ic_menu_library"
+            android:title="@string/menu_title_library_services" />
+
+        <item android:id="@+id/timetable"
+            android:icon="@drawable/ic_menu_timetable"
+            android:title="@string/menu_title_timetables" />
+
+    </group>
+</menu>
