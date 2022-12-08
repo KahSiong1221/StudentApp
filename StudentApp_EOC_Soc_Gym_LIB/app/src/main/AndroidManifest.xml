@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudentApp_EOC_Soc"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".eating_on_campus.EocActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".eating_on_campus.FavFoodActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".soc_portal.SocPortalActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".soc_portal.SocSearchActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".soc_portal.SocJoinedActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".soc_portal.LeaveSocActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+
+        <activity
+            android:name=".soc_portal.JoinSocActivity"
+            android:exported="true">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity android:name=".calendar.EditEventActivity" />
+        <activity android:name=".calendar.WeekViewActivity" />
+        <activity android:name=".calendar.EventMainActivity" />
+
+        <activity android:name=".library.libraryMainActivity"> </activity>
+        <activity android:name=".library.ChooseBookingActivity"> </activity>
+        <activity android:name=".library.viewMyBookingActivity"> </activity>
+        <activity android:name=".library.computerSlotsActivity"> </activity>
+        <activity android:name=".library.roomSlotsActivity"> </activity>
+        <activity android:name=".library.bookComputerActivity"> </activity>
+        <activity android:name=".library.bookRoomActivity"> </activity>
+        <activity android:name=".library.bookConfirmLibrary"> </activity>
+        <activity android:name=".library.bookCancelLibrary"> </activity>
+
+        <activity
+            android:name=".gym_portal.GymInfo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.SidebarMenu"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.BookCancel"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.BuyConfirm"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.ViewBooking"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.Menu"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.GymSubscription"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".gym_portal.UserActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- This is my dialog menu to confirm booking -->
+        <activity
+            android:name=".gym_portal.BookConfirm"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert" />
+        <activity
+            android:name=".gym_portal.BookGymTimeslot"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name=".gym_portal.GymMain"></activity>
+
+    </application>
+
+</manifest>
