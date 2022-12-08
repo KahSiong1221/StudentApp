@@ -88,8 +88,9 @@ public class bookRoomActivity extends AppCompatActivity {
                     intent.putExtra("startTime", bookingStartTime);
                     intent.putExtra("endTime", bookingEndTime);
                     intent.putExtra("date", bookingDate);
-                    intent.putExtra("BOOKING_KEY", "LibraryComputer");
-                    intent.putExtra("booking_type", "Computer");
+                    intent.putExtra("booking_type_id", libraryRoomClicked.getRoomId());
+                    intent.putExtra("BOOKING_KEY", "LibraryRoom");
+                    intent.putExtra("booking_type", "Room");
 
                     // start the next activity
                     startActivity(intent);
@@ -115,36 +116,38 @@ public class bookRoomActivity extends AppCompatActivity {
         dbManager.open();
         Cursor cursor;
         Cursor cursor2;
-        ArrayList<libraryRoom> libraryRoom = new ArrayList<libraryRoom>();
+        ArrayList<libraryRoom> libraryRooms = new ArrayList<libraryRoom>();
         cursor = dbManager.getRoom(floor);
+        String validationString ="Unvailable";
 
         if (cursor.moveToFirst()) {
             do {
+                cursor2 = dbManager.validateRoomBooking(starTime, endTime, Date, cursor.getInt(0));
+
+                if (cursor2.getCount() >= 1) {
+                    cursor2.moveToFirst();
+
+                    Log.i("This Room booked found id is ", Integer.toString(cursor.getInt(0)));
+                    validationString = "Unavailable";
+                } else
+                {
+                    validationString = "Available";
+                }
+
                 libraryRoom thisLibraryRoom = new libraryRoom(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getInt(2),
                         cursor.getString(3),
-                        "Available");
-                libraryRoom.add(thisLibraryRoom);
+                        validationString);
+                libraryRooms.add(thisLibraryRoom);
             }
 
             while (cursor.moveToNext());
         }
 
-        Log.i("This  computer count", Integer.toString(cursor.getCount()));
-        if (libraryRoom.size() >= 1) {
-            for (libraryRoom thisLibraryRoom : libraryRoom) {
-                cursor2 = dbManager.validateRoomBooking(starTime, endTime, Date, thisLibraryRoom.getRoomId());
-                if (cursor2.getCount() > 1) {
-                    thisLibraryRoom.setRoomStatus("Unavailable");
-                }
-
-            }
-        }
-
         dbManager.close();
-        return libraryRoom;
+        return libraryRooms;
     }
 
     private void loadSideMenu() {

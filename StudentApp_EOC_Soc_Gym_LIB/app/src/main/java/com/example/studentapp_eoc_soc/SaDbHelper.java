@@ -78,6 +78,7 @@ public class SaDbHelper extends SQLiteOpenHelper {
     // computerBooking columns
     public static final String KEY_COMPUTER_BOOKING_ID = "computerBooking_id";
     public static final String KEY_COMPUTER_BOOKING_NAME = "computerBookingName";
+    public static final String KEY_COMPUTER_BOOKING_FLOOR = "computerBookingFloor";
     public static final String KEY_COMPUTER_BOOKING_START_TIME = "computerBookingStartTime";
     public static final String KEY_COMPUTER_BOOKING_END_TIME = "computerBookingEndTime";
     public static final String KEY_COMPUTER_BOOKING_DATE = "computerBookingDate";
@@ -86,6 +87,7 @@ public class SaDbHelper extends SQLiteOpenHelper {
     // roomBooking columns
     public static final String KEY_ROOM_BOOKING_ID = "roomBooking_id";
     public static final String KEY_ROOM_BOOKING_NAME = "roomBookingName";
+    public static final String KEY_ROOM_BOOKING_FLOOR = "RoomBookingFloor";
     public static final String KEY_ROOM_BOOKING_START_TIME = "roomBookingStartTime";
     public static final String KEY_ROOM_BOOKING_END_TIME = "roomBookingEndTime";
     public static final String KEY_ROOM_BOOKING_DATE = "roomBookingDate";
@@ -204,6 +206,7 @@ public class SaDbHelper extends SQLiteOpenHelper {
             KEY_COMPUTER_BOOKING_END_TIME + " TEXT NOT NULL, " +
             KEY_COMPUTER_BOOKING_DATE + " TEXT NOT NULL, " +
             KEY_COMPUTER_BOOKING_STATUS + " TEXT NOT NULL, " +
+            KEY_COMPUTER_BOOKING_FLOOR + " INTEGER NOT NULL, " +
             KEY_COMPUTER_ID + " INTEGER NOT NULL, " +
             KEY_USER_ID + " INTEGER NOT NULL, " +
             " FOREIGN KEY (" + KEY_COMPUTER_ID + ") REFERENCES " + DB_COMPUTER_TABLE + " (" + KEY_COMPUTER_ID + ") ON DELETE CASCADE ON UPDATE CASCADE, " +
@@ -216,6 +219,7 @@ public class SaDbHelper extends SQLiteOpenHelper {
             KEY_ROOM_BOOKING_END_TIME + " TEXT NOT NULL, " +
             KEY_ROOM_BOOKING_DATE + " TEXT NOT NULL, " +
             KEY_ROOM_BOOKING_STATUS + " TEXT NOT NULL, " +
+            KEY_ROOM_BOOKING_FLOOR + " INTEGER NOT NULL, " +
             KEY_ROOM_ID + " INTEGER NOT NULL, " +
             KEY_USER_ID + " INTEGER NOT NULL, " +
             "FOREIGN KEY (" + KEY_ROOM_ID + ") REFERENCES " + DB_ROOM_TABLE + " (" + KEY_ROOM_ID + ") ON DELETE CASCADE ON UPDATE CASCADE, " +

@@ -277,25 +277,17 @@ public class computerSlotsActivity extends AppCompatActivity implements AdapterV
         for (int counter = 0; counter < Schedule.length -1; counter++)
         {
             //
-            SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yy");
+            SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyy");
             myHour = Schedule[counter + 1];
-            myHour = myHour.substring(0,1);
+            myHour = myHour.substring(0,2);
             myHourInt = Integer.parseInt(myHour);
-            cursor = dbManager.getComputerAvailability(Schedule[counter],Schedule[counter +1],date);
+            cursor = dbManager.getComputerAvailability(Schedule[counter],Schedule[counter +1],date,floor);
             cursor.moveToFirst();
 
-            // checks if space is full
-            if(cursor.getInt(0) >= slotLimit) {
-
-                validationStatus ="Unavailable";
-            }
-            else{
-                validationStatus ="Available";
-            }
 
             try {
                 Date strDate = sdf3.parse(date);
-                if(currentCal.get(Calendar.HOUR_OF_DAY) > myHourInt  ){
+                if(currentCal.get(Calendar.HOUR_OF_DAY) > myHourInt  && (new Date().after(strDate)) ){
 
                     validationStatus = "Unavailable";
                 }
@@ -304,6 +296,15 @@ public class computerSlotsActivity extends AppCompatActivity implements AdapterV
                 }
             }catch (ParseException except){
                 except.printStackTrace();
+            }
+
+            // checks if space is full
+            if(cursor.getInt(0) >= slotLimit) {
+
+                validationStatus ="Unavailable";
+            }
+            else{
+                validationStatus ="Available";
             }
 
 

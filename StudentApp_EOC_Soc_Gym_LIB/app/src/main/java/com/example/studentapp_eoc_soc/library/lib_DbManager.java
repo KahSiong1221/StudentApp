@@ -45,7 +45,7 @@ public class lib_DbManager extends SaDbManager {
 
     }
 
-    public Cursor getComputerAvailability(String starTime, String endTime, String Date){
+    public Cursor getComputerAvailability(String starTime, String endTime, String Date, int floor){
         final  String query = "SELECT "+
                 "COUNT(*) " +
                 "FROM " +
@@ -53,13 +53,14 @@ public class lib_DbManager extends SaDbManager {
                 " WHERE " +
                 SaDbHelper.KEY_COMPUTER_BOOKING_START_TIME + " = ?" +" AND "+
                 SaDbHelper.KEY_COMPUTER_BOOKING_END_TIME + " = ?"  +" AND "+
-                SaDbHelper.KEY_COMPUTER_BOOKING_DATE + " = ?;";
+                SaDbHelper.KEY_COMPUTER_BOOKING_DATE + " = ?"  +" AND "+
+                SaDbHelper.KEY_COMPUTER_BOOKING_FLOOR + " = ?;";
 
-        return saDb.rawQuery(query,new String[]{starTime,endTime,Date});
+        return saDb.rawQuery(query,new String[]{starTime,endTime,Date, String.valueOf(floor)});
     }
 
 
-    public Cursor getRoomAvailability(String starTime, String endTime, String Date){
+    public Cursor getRoomAvailability(String starTime, String endTime, String Date, int floor){
         final  String query = "SELECT "+
                 "COUNT(*) " +
                 "FROM " +
@@ -67,9 +68,10 @@ public class lib_DbManager extends SaDbManager {
                 " WHERE " +
                 SaDbHelper.KEY_ROOM_BOOKING_START_TIME + " = ?" +" AND "+
                 SaDbHelper.KEY_ROOM_BOOKING_END_TIME + " = ?"  +" AND "+
-                SaDbHelper.KEY_ROOM_BOOKING_DATE + " = ?;";
+                SaDbHelper.KEY_ROOM_BOOKING_DATE + " = ?"  +" AND "+
+                SaDbHelper.KEY_ROOM_BOOKING_FLOOR + " = ?;";
 
-        return saDb.rawQuery(query,new String[]{starTime,endTime,Date});
+        return saDb.rawQuery(query,new String[]{starTime,endTime,Date, String.valueOf(floor)});
     }
 
 
@@ -129,7 +131,7 @@ public class lib_DbManager extends SaDbManager {
         );
     }
 
-    public void addComputerBooking(String Name,String startTime, String endTime, String Date, String Status, int CID, int UID){
+    public void addComputerBooking(String Name,String startTime, String endTime, String Date, String Status,int floor, int CID, int UID){
 
         ContentValues values = new ContentValues();
         values.put(SaDbHelper.KEY_COMPUTER_BOOKING_NAME, Name); //
@@ -137,6 +139,7 @@ public class lib_DbManager extends SaDbManager {
         values.put(SaDbHelper.KEY_COMPUTER_BOOKING_END_TIME, endTime); //
         values.put(SaDbHelper.KEY_COMPUTER_BOOKING_DATE, Date); //
         values.put(SaDbHelper.KEY_COMPUTER_BOOKING_STATUS, Status); //
+        values.put(SaDbHelper.KEY_COMPUTER_BOOKING_FLOOR, floor); //
         values.put(SaDbHelper.KEY_COMPUTER_ID, CID); //
         values.put(SaDbHelper.KEY_USER_ID, UID); //
 
@@ -145,13 +148,14 @@ public class lib_DbManager extends SaDbManager {
         saDb.insert(SaDbHelper.DB_COMPUTER_BOOKING_TABLE, null, values);
     }
 
-    public void addRoomBooking(String Name,String startTime, String endTime, String Date, String Status, int CID, int UID){
+    public void addRoomBooking(String Name,String startTime, String endTime, String Date, String Status,int floor, int CID, int UID){
         ContentValues values = new ContentValues();
         values.put(SaDbHelper.KEY_ROOM_BOOKING_NAME, Name); //
         values.put(SaDbHelper.KEY_ROOM_BOOKING_START_TIME, startTime); //
         values.put(SaDbHelper.KEY_ROOM_BOOKING_END_TIME, endTime); //
         values.put(SaDbHelper.KEY_ROOM_BOOKING_DATE, Date); //
         values.put(SaDbHelper.KEY_ROOM_BOOKING_STATUS, Status); //
+        values.put(SaDbHelper.KEY_ROOM_BOOKING_FLOOR, floor); //
         values.put(SaDbHelper.KEY_ROOM_ID, CID); //
         values.put(SaDbHelper.KEY_USER_ID, UID); //
 
@@ -165,15 +169,15 @@ public class lib_DbManager extends SaDbManager {
     {
         final  String query = "SELECT "+
                 " * " +
-                "FROM " +
+                " FROM " +
                 SaDbHelper.DB_COMPUTER_BOOKING_TABLE +
                 " WHERE " +
                 SaDbHelper.KEY_COMPUTER_BOOKING_START_TIME + " = ?" +" AND "+
                 SaDbHelper.KEY_COMPUTER_BOOKING_END_TIME + " = ?"  +" AND "+
                 SaDbHelper.KEY_COMPUTER_BOOKING_DATE + " = ?" +" AND "+
-                SaDbHelper.KEY_COMPUTER_ID+ " = " +computerID +";";
+                SaDbHelper.KEY_COMPUTER_ID+ " = ? "  +" ;";
 
-        return saDb.rawQuery(query,new String[]{startTime,endTime,Date});
+        return saDb.rawQuery(query,new String[]{startTime,endTime,Date, String.valueOf(computerID)});
     }
 
     public Cursor getMyComputerBooking(int userID){
@@ -186,6 +190,7 @@ public class lib_DbManager extends SaDbManager {
                       SaDbHelper.KEY_COMPUTER_BOOKING_END_TIME,
                       SaDbHelper.KEY_COMPUTER_BOOKING_DATE,
                       SaDbHelper.KEY_COMPUTER_BOOKING_STATUS,
+                      SaDbHelper.KEY_COMPUTER_BOOKING_FLOOR,
                       SaDbHelper.KEY_COMPUTER_ID,
                       SaDbHelper.KEY_USER_ID
               },
@@ -207,9 +212,9 @@ public class lib_DbManager extends SaDbManager {
                 SaDbHelper.KEY_ROOM_BOOKING_START_TIME + " = ?" +" AND "+
                 SaDbHelper.KEY_ROOM_BOOKING_END_TIME + " = ?"  +" AND "+
                 SaDbHelper.KEY_ROOM_BOOKING_DATE + " = ?" +" AND "+
-                SaDbHelper.KEY_ROOM_ID+ " = " +roomID +";";
+                SaDbHelper.KEY_ROOM_ID+ " = ? "  + " ;" ;
 
-        return saDb.rawQuery(query,new String[]{startTime,endTime,Date});
+        return saDb.rawQuery(query,new String[]{startTime,endTime,Date, String.valueOf(roomID)});
     }
 
 
@@ -222,6 +227,7 @@ public class lib_DbManager extends SaDbManager {
                         SaDbHelper.KEY_ROOM_BOOKING_END_TIME,
                         SaDbHelper.KEY_ROOM_BOOKING_DATE,
                         SaDbHelper.KEY_ROOM_BOOKING_STATUS,
+                        SaDbHelper.KEY_ROOM_BOOKING_FLOOR,
                         SaDbHelper.KEY_ROOM_ID,
                         SaDbHelper.KEY_USER_ID
                 },

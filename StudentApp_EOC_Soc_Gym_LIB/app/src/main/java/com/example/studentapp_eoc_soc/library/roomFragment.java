@@ -99,7 +99,7 @@ public class roomFragment extends ListFragment{
                         cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
-                        cursor.getInt(6)
+                        cursor.getInt(7)
                 );
 
                 Log.i("This is 1", cursor.getString(1));

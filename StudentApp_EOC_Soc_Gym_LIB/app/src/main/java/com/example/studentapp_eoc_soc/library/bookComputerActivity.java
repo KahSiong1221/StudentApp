@@ -3,6 +3,7 @@ package com.example.studentapp_eoc_soc.library;
 import com.example.studentapp_eoc_soc.R;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +35,11 @@ import java.util.Objects;
 
 public class bookComputerActivity extends AppCompatActivity {
 
+    public  static final String SHARED_PREFS = "shared_prefs";
+    public  static final String USER_ID_KEY = "user_key";
+    private SharedPreferences sharedPreferences;
+    private int user_ID;
+
     ArrayList<libraryComputer> computerbookings;
     private final lib_DbManager dbManager = new lib_DbManager(this);
     private computerbookingAdapter myAdapter;
@@ -54,7 +60,7 @@ public class bookComputerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.llibrary_display_computer_booking);
+        setContentView(R.layout.library_display_computer_booking);
         Button exitChooseBookingButton = (Button) findViewById(R.id.exitComputerBooking);
         TextView computerBookingdate = (TextView) findViewById(R.id.computerBookingDate);
         TextView computerBookingFloor = (TextView) findViewById(R.id.computerBookingFloor);
@@ -67,6 +73,9 @@ public class bookComputerActivity extends AppCompatActivity {
         bookingEndTime = data.getString("endTime");
         bookingDate = data.getString("date");
 
+        sharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        user_ID = sharedPreferences.getInt(USER_ID_KEY,-1);
+
         bookingfloorInt = Integer.valueOf(bookingfloor);
 
         String myString = bookingStartTime + "-" + bookingEndTime + "  " + bookingDate;
@@ -76,6 +85,7 @@ public class bookComputerActivity extends AppCompatActivity {
 
         computerbookings = createComputer(bookingStartTime, bookingEndTime, bookingDate, bookingfloorInt);
         myAdapter = new bookComputerActivity.computerbookingAdapter(this, R.layout.library_booking, computerbookings);
+        myAdapter.notifyDataSetChanged();
         lv.setAdapter(myAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,6 +103,7 @@ public class bookComputerActivity extends AppCompatActivity {
                     intent.putExtra("startTime", bookingStartTime);
                     intent.putExtra("endTime", bookingEndTime);
                     intent.putExtra("date", bookingDate);
+                    intent.putExtra("booking_type_id", libraryComputerClicked.getComputerId());
                     intent.putExtra("BOOKING_KEY", "LibraryComputer");
                     intent.putExtra("booking_type", "Computer");
 
@@ -182,30 +193,34 @@ public class bookComputerActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()) {
             do {
+                cursor2 = dbManager.validateComputerBooking(starTime, endTime, Date, cursor.getInt(0));
+
+                if (cursor2.getCount() >= 1) {
+                    cursor2.moveToFirst();
+
+                    Log.i("This computer booked found id is ", Integer.toString(cursor.getInt(0)));
+                    validationString = "Unavailable";
+                } else
+                {
+                    validationString = "Available";
+                }
 
                 libraryComputer thisLibraryComputer = new libraryComputer(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getInt(2),
                         cursor.getString(3),
-                        "Available");
+                        validationString);
                 libraryComputers.add(thisLibraryComputer);
             }
 
             while (cursor.moveToNext());
         }
 
-        if (libraryComputers.size() >= 1 ) {
-            for (libraryComputer thisLibraryComputer : libraryComputers) {
-                cursor2 = dbManager.validateComputerBooking(starTime, endTime, Date, thisLibraryComputer.getComputerId());
-                if (cursor2.getCount() >= 1) {
-                    thisLibraryComputer.setComputerStatus("Unavailable");
-                }
-
-            }
-        }
 
         dbManager.close();
+
+
         return libraryComputers;
     }
 

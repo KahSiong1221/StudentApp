@@ -156,7 +156,7 @@ public class roomSlotsActivity extends AppCompatActivity implements AdapterView.
                 slotClicked.setStatus(validationStatus);
                 Log.i("this is the status of item;", slotClicked.getStatus());
                 if(slotClicked.getStatus() == "Available") {
-                    Intent intent = new Intent(roomSlotsActivity.this, bookComputerActivity.class);
+                    Intent intent = new Intent(roomSlotsActivity.this, bookRoomActivity.class);
 
                     // add the data to send to the next screen onto the intent as "extras"
                     intent.putExtra("floor", Integer.toString(slotClicked.getFloor()));
@@ -230,30 +230,7 @@ public class roomSlotsActivity extends AppCompatActivity implements AdapterView.
     }
 
 
-    /*
-    protected void onListItemClick(ListView l, View v, int position, long id)
-    {
 
-        timeslot slotClicked = (timeslot) l.getItemAtPosition(position);
-        slotClicked.setDate(selectDate);
-        slotClicked.setFloor(currFloor);
-        // switching screens requires an intent
-        if(slotClicked.getStatus() == "Available") {
-            Intent intent = new Intent(roomSlotsActivity.this, bookRoomActivity.class);
-
-            // add the data to send to the next screen onto the intent as "extras"
-            intent.putExtra("floor", Integer.toString(slotClicked.getFloor()));
-            intent.putExtra("startTime", slotClicked.getStartTime());
-            intent.putExtra("endTime", slotClicked.getEndTime());
-            intent.putExtra("date", slotClicked.getDate());
-
-            // start the next activity
-            startActivity(intent);
-        }
-    }
-
-
-     */
 
     public void displayDays(Button days[]){
 
@@ -304,9 +281,9 @@ public class roomSlotsActivity extends AppCompatActivity implements AdapterView.
             //
             SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yy");
             myHour = Schedule[counter + 1];
-            myHour = myHour.substring(0,1);
+            myHour = myHour.substring(0,2);
             myHourInt = Integer.parseInt(myHour);
-            cursor = dbManager.getRoomAvailability(Schedule[counter],Schedule[counter +1],date);
+            cursor = dbManager.getRoomAvailability(Schedule[counter],Schedule[counter +1],date,floor);
             cursor.moveToFirst();
 
             try {
@@ -325,10 +302,10 @@ public class roomSlotsActivity extends AppCompatActivity implements AdapterView.
 
             // checks if space is full
             if(cursor.getInt(0) >= slotLimit) {
-                validationString ="Unavailable";
+                validationStatus ="Unavailable";
             }
             else{
-                validationString ="Available";
+                validationStatus ="Available";
             }
 
             //compares the hour of the end time of the booking and the current date to see if its available

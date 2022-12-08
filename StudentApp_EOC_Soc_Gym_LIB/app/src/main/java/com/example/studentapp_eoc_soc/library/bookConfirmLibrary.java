@@ -40,7 +40,7 @@ public class bookConfirmLibrary extends AppCompatActivity {
     private String bookingFloor;
     private String BOOKING_KEY;
 
-    private int bookingTypeID = 0;
+    private int bookingTypeID;
 
 
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -106,6 +106,7 @@ public class bookConfirmLibrary extends AppCompatActivity {
                             bookingEndTime,
                             bookingDate,
                             Status,
+                            Integer.valueOf(bookingFloor),
                             bookingTypeID,
                             user_ID);
                 }
@@ -118,6 +119,7 @@ public class bookConfirmLibrary extends AppCompatActivity {
                             bookingEndTime,
                             bookingDate,
                             Status,
+                            Integer.valueOf(bookingFloor),
                             bookingTypeID,
                             user_ID);
                 }
