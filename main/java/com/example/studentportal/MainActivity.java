@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(item.getItemId())
                 {
-                    //case statement for each opption picked to sqitch intents
+                    //case statement for each option picked to switch intents
                     //for my app this just works for the societies portal button
                     case R.id.soc:
                         Intent intent = new Intent(getApplicationContext(), SocsPortal.class);

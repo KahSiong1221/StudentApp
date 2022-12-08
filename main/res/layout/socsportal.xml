@@ -88,7 +88,7 @@
                 android:layout_marginLeft="30sp"
                 android:textSize="16sp"
                 android:ems="10"
-                android:text="Input Search" />
+                android:hint="Input Search" />
 
             <Button
                 android:layout_gravity="center"
